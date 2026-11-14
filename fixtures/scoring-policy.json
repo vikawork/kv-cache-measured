@@ -1,0 +1,8 @@
+{
+  "recorded_utc": "2026-11-14T14:24:23.599414+00:00",
+  "primary": "Entire output stripped of surrounding whitespace equals expected code.",
+  "secondary": "First nonempty answer line equals expected code.",
+  "basis": "Three exploratory f16 outputs retrieved correct codes but continued with extra text. No quantized-cache outputs had been measured when this policy was fixed.",
+  "protocol": "One fixed authored ledger containing twenty facts; one cold first question per cache condition, then shared-prefix reuse. Twenty identical prompts across all cache conditions.",
+  "excluded_pilot": "../pilot-separate-documents/"
+}

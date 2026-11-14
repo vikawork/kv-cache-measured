@@ -1,0 +1,3 @@
+repeat=1 total_s=22.969992 token1_s=18.703149 token64_cumulative_s=22.969726 identical_text=True identical_ids=True
+repeat=2 total_s=23.714060 token1_s=19.319877 token64_cumulative_s=23.713790 identical_text=True identical_ids=True
+repeat=3 total_s=23.412712 token1_s=19.088540 token64_cumulative_s=23.412445 identical_text=True identical_ids=True

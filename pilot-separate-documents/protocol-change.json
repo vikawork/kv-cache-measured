@@ -1,0 +1,4 @@
+{
+  "utc": "2026-11-14T14:23:21.470526+00:00",
+  "reason": "Use one fixed authored document with 20 facts and 20 questions. Cold first query supplies full-prompt speed; subsequent questions reuse its shared document prefix. This protocol change preceded all quantized-cache outputs. Separate-document partial f16 outputs are exploratory and excluded from final tables. Strict and first-line scores are both retained."
+}

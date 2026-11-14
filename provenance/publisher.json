@@ -1,0 +1,6 @@
+{
+  "repository": "Qwen/Qwen3-4B-GGUF",
+  "revision": "bc640142c66e1fdd12af0bd68f40445458f3869b",
+  "gated": false,
+  "license": "apache-2.0"
+}

@@ -1,0 +1,2 @@
+{"role": "main", "equation": "2 * 36 * 8 * 128 * 2 = 147456 bytes/token", "source": "../provenance/models.json", "bpt": 147456, "weights": 2497280256, "crossover_tokens": 16935.765625}
+{"role": "contrast", "equation": "2 * 8 * 4 * 256 * 2 = 32768 bytes/token", "source": "../provenance/models.json", "bpt": 32768, "weights": 2783446464, "crossover_tokens": 84944.044921875}

@@ -1,0 +1,4640 @@
+{
+  "formulas": [
+    {
+      "role": "main",
+      "gguf_layers": 36,
+      "runtime_layers": 36,
+      "kv_layers": 36,
+      "heads": 32,
+      "kv_heads": 8,
+      "head_size": 128,
+      "bpt": 147456,
+      "weights": 2497280256,
+      "crossover_tokens": 16935.765625
+    },
+    {
+      "role": "contrast",
+      "gguf_layers": 33,
+      "runtime_layers": 32,
+      "kv_layers": 8,
+      "heads": 16,
+      "kv_heads": 4,
+      "head_size": 256,
+      "bpt": 32768,
+      "weights": 2783446464,
+      "crossover_tokens": 84944.044921875
+    }
+  ],
+  "blocks": [
+    {
+      "block": "A-main-4096",
+      "role": "main",
+      "ctx": 4096,
+      "k": "f16",
+      "v": "f16",
+      "parallel": 1,
+      "started_utc": "2026-11-14T12:55:38.040079+00:00",
+      "loadavg_1m": 3.42431640625,
+      "command": [
+        "docker",
+        "run",
+        "-d",
+        "--name",
+        "vk-kvcache-measure",
+        "--pull",
+        "never",
+        "--network",
+        "none",
+        "--memory",
+        "44g",
+        "--memory-swap",
+        "44g",
+        "--entrypoint",
+        "/usr/bin/nice",
+        "-v",
+        "<workspace>/.studio/ai-channel/kvcache/models:/models:ro",
+        "-v",
+        "<workspace>/.studio/ai-channel/specdec/models:/contrast:ro",
+        "-v",
+        "<workspace>/.studio/ai-channel/kvcache/demo:/demo:ro",
+        "-e",
+        "OMP_NUM_THREADS=8",
+        "-e",
+        "OPENBLAS_NUM_THREADS=8",
+        "ghcr.io/ggml-org/llama.cpp:full-b12211@sha256:8960de326dd60972cc4d442531f4efa006416d5896da2a39f0def0b55cbcb0c2",
+        "-n",
+        "10",
+        "/app/llama-server",
+        "-m",
+        "/models/Qwen3-4B-Q4_K_M.gguf",
+        "-ngl",
+        "0",
+        "-t",
+        "8",
+        "-tb",
+        "8",
+        "-c",
+        "4096",
+        "--parallel",
+        "1",
+        "--threads-http",
+        "1",
+        "--host",
+        "127.0.0.1",
+        "--port",
+        "8080",
+        "-fa",
+        "on",
+        "-ctk",
+        "f16",
+        "-ctv",
+        "f16",
+        "--cache-ram",
+        "0",
+        "--no-warmup",
+        "--no-context-shift",
+        "-lv",
+        "4"
+      ],
+      "complete": true,
+      "rss_KiB": {
+        "VmHWM": 4826764,
+        "VmRSS": 4826764
+      },
+      "cgroup_peak_bytes": 2467184640,
+      "finished_utc": "2026-11-14T12:55:39.490030+00:00",
+      "kv_bytes": 603979776,
+      "kv_evidence": "logs/A-main-4096.log:270",
+      "expected_bytes": 603979776
+    },
+    {
+      "block": "A-main-16384",
+      "role": "main",
+      "ctx": 16384,
+      "k": "f16",
+      "v": "f16",
+      "parallel": 1,
+      "started_utc": "2026-11-14T12:55:39.490346+00:00",
+      "loadavg_1m": 3.42431640625,
+      "command": [
+        "docker",
+        "run",
+        "-d",
+        "--name",
+        "vk-kvcache-measure",
+        "--pull",
+        "never",
+        "--network",
+        "none",
+        "--memory",
+        "44g",
+        "--memory-swap",
+        "44g",
+        "--entrypoint",
+        "/usr/bin/nice",
+        "-v",
+        "<workspace>/.studio/ai-channel/kvcache/models:/models:ro",
+        "-v",
+        "<workspace>/.studio/ai-channel/specdec/models:/contrast:ro",
+        "-v",
+        "<workspace>/.studio/ai-channel/kvcache/demo:/demo:ro",
+        "-e",
+        "OMP_NUM_THREADS=8",
+        "-e",
+        "OPENBLAS_NUM_THREADS=8",
+        "ghcr.io/ggml-org/llama.cpp:full-b12211@sha256:8960de326dd60972cc4d442531f4efa006416d5896da2a39f0def0b55cbcb0c2",
+        "-n",
+        "10",
+        "/app/llama-server",
+        "-m",
+        "/models/Qwen3-4B-Q4_K_M.gguf",
+        "-ngl",
+        "0",
+        "-t",
+        "8",
+        "-tb",
+        "8",
+        "-c",
+        "16384",
+        "--parallel",
+        "1",
+        "--threads-http",
+        "1",
+        "--host",
+        "127.0.0.1",
+        "--port",
+        "8080",
+        "-fa",
+        "on",
+        "-ctk",
+        "f16",
+        "-ctv",
+        "f16",
+        "--cache-ram",
+        "0",
+        "--no-warmup",
+        "--no-context-shift",
+        "-lv",
+        "4"
+      ],
+      "complete": true,
+      "rss_KiB": {
+        "VmHWM": 6578796,
+        "VmRSS": 6578796
+      },
+      "cgroup_peak_bytes": 4265496576,
+      "finished_utc": "2026-11-14T12:55:40.980312+00:00",
+      "kv_bytes": 2415919104,
+      "kv_evidence": "logs/A-main-16384.log:270",
+      "expected_bytes": 2415919104
+    },
+    {
+      "block": "A-main-32768",
+      "role": "main",
+      "ctx": 32768,
+      "k": "f16",
+      "v": "f16",
+      "parallel": 1,
+      "started_utc": "2026-11-14T12:55:40.980567+00:00",
+      "loadavg_1m": 3.42431640625,
+      "command": [
+        "docker",
+        "run",
+        "-d",
+        "--name",
+        "vk-kvcache-measure",
+        "--pull",
+        "never",
+        "--network",
+        "none",
+        "--memory",
+        "44g",
+        "--memory-swap",
+        "44g",
+        "--entrypoint",
+        "/usr/bin/nice",
+        "-v",
+        "<workspace>/.studio/ai-channel/kvcache/models:/models:ro",
+        "-v",
+        "<workspace>/.studio/ai-channel/specdec/models:/contrast:ro",
+        "-v",
+        "<workspace>/.studio/ai-channel/kvcache/demo:/demo:ro",
+        "-e",
+        "OMP_NUM_THREADS=8",
+        "-e",
+        "OPENBLAS_NUM_THREADS=8",
+        "ghcr.io/ggml-org/llama.cpp:full-b12211@sha256:8960de326dd60972cc4d442531f4efa006416d5896da2a39f0def0b55cbcb0c2",
+        "-n",
+        "10",
+        "/app/llama-server",
+        "-m",
+        "/models/Qwen3-4B-Q4_K_M.gguf",
+        "-ngl",
+        "0",
+        "-t",
+        "8",
+        "-tb",
+        "8",
+        "-c",
+        "32768",
+        "--parallel",
+        "1",
+        "--threads-http",
+        "1",
+        "--host",
+        "127.0.0.1",
+        "--port",
+        "8080",
+        "-fa",
+        "on",
+        "-ctk",
+        "f16",
+        "-ctv",
+        "f16",
+        "--cache-ram",
+        "0",
+        "--no-warmup",
+        "--no-context-shift",
+        "-lv",
+        "4"
+      ],
+      "complete": true,
+      "rss_KiB": {
+        "VmHWM": 8938164,
+        "VmRSS": 8938164
+      },
+      "cgroup_peak_bytes": 6685122560,
+      "finished_utc": "2026-11-14T12:55:43.748396+00:00",
+      "kv_bytes": 4831838208,
+      "kv_evidence": "logs/A-main-32768.log:270",
+      "expected_bytes": 4831838208
+    },
+    {
+      "block": "A-contrast-4096",
+      "role": "contrast",
+      "ctx": 4096,
+      "k": "f16",
+      "v": "f16",
+      "parallel": 1,
+      "started_utc": "2026-11-14T12:55:43.748656+00:00",
+      "loadavg_1m": 3.39013671875,
+      "command": [
+        "docker",
+        "run",
+        "-d",
+        "--name",
+        "vk-kvcache-measure",
+        "--pull",
+        "never",
+        "--network",
+        "none",
+        "--memory",
+        "44g",
+        "--memory-swap",
+        "44g",
+        "--entrypoint",
+        "/usr/bin/nice",
+        "-v",
+        "<workspace>/.studio/ai-channel/kvcache/models:/models:ro",
+        "-v",
+        "<workspace>/.studio/ai-channel/specdec/models:/contrast:ro",
+        "-v",
+        "<workspace>/.studio/ai-channel/kvcache/demo:/demo:ro",
+        "-e",
+        "OMP_NUM_THREADS=8",
+        "-e",
+        "OPENBLAS_NUM_THREADS=8",
+        "ghcr.io/ggml-org/llama.cpp:full-b12211@sha256:8960de326dd60972cc4d442531f4efa006416d5896da2a39f0def0b55cbcb0c2",
+        "-n",
+        "10",
+        "/app/llama-server",
+        "-m",
+        "/contrast/qwen3.5-4b-q4_k_m.gguf",
+        "-ngl",
+        "0",
+        "-t",
+        "8",
+        "-tb",
+        "8",
+        "-c",
+        "4096",
+        "--parallel",
+        "1",
+        "--threads-http",
+        "1",
+        "--host",
+        "127.0.0.1",
+        "--port",
+        "8080",
+        "-fa",
+        "on",
+        "-ctk",
+        "f16",
+        "-ctv",
+        "f16",
+        "--cache-ram",
+        "0",
+        "--no-warmup",
+        "--no-context-shift",
+        "-lv",
+        "4"
+      ],
+      "complete": true,
+      "rss_KiB": {
+        "VmHWM": 4573484,
+        "VmRSS": 4573484
+      },
+      "cgroup_peak_bytes": 1996931072,
+      "finished_utc": "2026-11-14T12:55:45.182221+00:00",
+      "kv_bytes": 134217728,
+      "kv_evidence": "logs/A-contrast-4096.log:286",
+      "expected_bytes": 134217728
+    },
+    {
+      "block": "A-contrast-16384",
+      "role": "contrast",
+      "ctx": 16384,
+      "k": "f16",
+      "v": "f16",
+      "parallel": 1,
+      "started_utc": "2026-11-14T12:55:45.182536+00:00",
+      "loadavg_1m": 3.39013671875,
+      "command": [
+        "docker",
+        "run",
+        "-d",
+        "--name",
+        "vk-kvcache-measure",
+        "--pull",
+        "never",
+        "--network",
+        "none",
+        "--memory",
+        "44g",
+        "--memory-swap",
+        "44g",
+        "--entrypoint",
+        "/usr/bin/nice",
+        "-v",
+        "<workspace>/.studio/ai-channel/kvcache/models:/models:ro",
+        "-v",
+        "<workspace>/.studio/ai-channel/specdec/models:/contrast:ro",
+        "-v",
+        "<workspace>/.studio/ai-channel/kvcache/demo:/demo:ro",
+        "-e",
+        "OMP_NUM_THREADS=8",
+        "-e",
+        "OPENBLAS_NUM_THREADS=8",
+        "ghcr.io/ggml-org/llama.cpp:full-b12211@sha256:8960de326dd60972cc4d442531f4efa006416d5896da2a39f0def0b55cbcb0c2",
+        "-n",
+        "10",
+        "/app/llama-server",
+        "-m",
+        "/contrast/qwen3.5-4b-q4_k_m.gguf",
+        "-ngl",
+        "0",
+        "-t",
+        "8",
+        "-tb",
+        "8",
+        "-c",
+        "16384",
+        "--parallel",
+        "1",
+        "--threads-http",
+        "1",
+        "--host",
+        "127.0.0.1",
+        "--port",
+        "8080",
+        "-fa",
+        "on",
+        "-ctk",
+        "f16",
+        "-ctv",
+        "f16",
+        "--cache-ram",
+        "0",
+        "--no-warmup",
+        "--no-context-shift",
+        "-lv",
+        "4"
+      ],
+      "complete": true,
+      "rss_KiB": {
+        "VmHWM": 4965800,
+        "VmRSS": 4929284
+      },
+      "cgroup_peak_bytes": 2395938816,
+      "finished_utc": "2026-11-14T12:55:46.633962+00:00",
+      "kv_bytes": 536870912,
+      "kv_evidence": "logs/A-contrast-16384.log:286",
+      "expected_bytes": 536870912
+    },
+    {
+      "block": "A-contrast-32768",
+      "role": "contrast",
+      "ctx": 32768,
+      "k": "f16",
+      "v": "f16",
+      "parallel": 1,
+      "started_utc": "2026-11-14T12:55:46.634233+00:00",
+      "loadavg_1m": 3.39013671875,
+      "command": [
+        "docker",
+        "run",
+        "-d",
+        "--name",
+        "vk-kvcache-measure",
+        "--pull",
+        "never",
+        "--network",
+        "none",
+        "--memory",
+        "44g",
+        "--memory-swap",
+        "44g",
+        "--entrypoint",
+        "/usr/bin/nice",
+        "-v",
+        "<workspace>/.studio/ai-channel/kvcache/models:/models:ro",
+        "-v",
+        "<workspace>/.studio/ai-channel/specdec/models:/contrast:ro",
+        "-v",
+        "<workspace>/.studio/ai-channel/kvcache/demo:/demo:ro",
+        "-e",
+        "OMP_NUM_THREADS=8",
+        "-e",
+        "OPENBLAS_NUM_THREADS=8",
+        "ghcr.io/ggml-org/llama.cpp:full-b12211@sha256:8960de326dd60972cc4d442531f4efa006416d5896da2a39f0def0b55cbcb0c2",
+        "-n",
+        "10",
+        "/app/llama-server",
+        "-m",
+        "/contrast/qwen3.5-4b-q4_k_m.gguf",
+        "-ngl",
+        "0",
+        "-t",
+        "8",
+        "-tb",
+        "8",
+        "-c",
+        "32768",
+        "--parallel",
+        "1",
+        "--threads-http",
+        "1",
+        "--host",
+        "127.0.0.1",
+        "--port",
+        "8080",
+        "-fa",
+        "on",
+        "-ctk",
+        "f16",
+        "-ctv",
+        "f16",
+        "--cache-ram",
+        "0",
+        "--no-warmup",
+        "--no-context-shift",
+        "-lv",
+        "4"
+      ],
+      "complete": true,
+      "rss_KiB": {
+        "VmHWM": 5491008,
+        "VmRSS": 5491008
+      },
+      "cgroup_peak_bytes": 2936111104,
+      "finished_utc": "2026-11-14T12:55:48.079115+00:00",
+      "kv_bytes": 1073741824,
+      "kv_evidence": "logs/A-contrast-32768.log:286",
+      "expected_bytes": 1073741824
+    },
+    {
+      "block": "A-contrast-65536",
+      "role": "contrast",
+      "ctx": 65536,
+      "k": "f16",
+      "v": "f16",
+      "parallel": 1,
+      "started_utc": "2026-11-14T12:55:48.079402+00:00",
+      "loadavg_1m": 3.27880859375,
+      "command": [
+        "docker",
+        "run",
+        "-d",
+        "--name",
+        "vk-kvcache-measure",
+        "--pull",
+        "never",
+        "--network",
+        "none",
+        "--memory",
+        "44g",
+        "--memory-swap",
+        "44g",
+        "--entrypoint",
+        "/usr/bin/nice",
+        "-v",
+        "<workspace>/.studio/ai-channel/kvcache/models:/models:ro",
+        "-v",
+        "<workspace>/.studio/ai-channel/specdec/models:/contrast:ro",
+        "-v",
+        "<workspace>/.studio/ai-channel/kvcache/demo:/demo:ro",
+        "-e",
+        "OMP_NUM_THREADS=8",
+        "-e",
+        "OPENBLAS_NUM_THREADS=8",
+        "ghcr.io/ggml-org/llama.cpp:full-b12211@sha256:8960de326dd60972cc4d442531f4efa006416d5896da2a39f0def0b55cbcb0c2",
+        "-n",
+        "10",
+        "/app/llama-server",
+        "-m",
+        "/contrast/qwen3.5-4b-q4_k_m.gguf",
+        "-ngl",
+        "0",
+        "-t",
+        "8",
+        "-tb",
+        "8",
+        "-c",
+        "65536",
+        "--parallel",
+        "1",
+        "--threads-http",
+        "1",
+        "--host",
+        "127.0.0.1",
+        "--port",
+        "8080",
+        "-fa",
+        "on",
+        "-ctk",
+        "f16",
+        "-ctv",
+        "f16",
+        "--cache-ram",
+        "0",
+        "--no-warmup",
+        "--no-context-shift",
+        "-lv",
+        "4"
+      ],
+      "complete": true,
+      "rss_KiB": {
+        "VmHWM": 6517520,
+        "VmRSS": 6517520
+      },
+      "cgroup_peak_bytes": 3987091456,
+      "finished_utc": "2026-11-14T12:55:49.548049+00:00",
+      "kv_bytes": 2147483648,
+      "kv_evidence": "logs/A-contrast-65536.log:286",
+      "expected_bytes": 2147483648
+    },
+    {
+      "block": "A-contrast-131072",
+      "role": "contrast",
+      "ctx": 131072,
+      "k": "f16",
+      "v": "f16",
+      "parallel": 1,
+      "started_utc": "2026-11-14T12:55:49.548448+00:00",
+      "loadavg_1m": 3.27880859375,
+      "command": [
+        "docker",
+        "run",
+        "-d",
+        "--name",
+        "vk-kvcache-measure",
+        "--pull",
+        "never",
+        "--network",
+        "none",
+        "--memory",
+        "44g",
+        "--memory-swap",
+        "44g",
+        "--entrypoint",
+        "/usr/bin/nice",
+        "-v",
+        "<workspace>/.studio/ai-channel/kvcache/models:/models:ro",
+        "-v",
+        "<workspace>/.studio/ai-channel/specdec/models:/contrast:ro",
+        "-v",
+        "<workspace>/.studio/ai-channel/kvcache/demo:/demo:ro",
+        "-e",
+        "OMP_NUM_THREADS=8",
+        "-e",
+        "OPENBLAS_NUM_THREADS=8",
+        "ghcr.io/ggml-org/llama.cpp:full-b12211@sha256:8960de326dd60972cc4d442531f4efa006416d5896da2a39f0def0b55cbcb0c2",
+        "-n",
+        "10",
+        "/app/llama-server",
+        "-m",
+        "/contrast/qwen3.5-4b-q4_k_m.gguf",
+        "-ngl",
+        "0",
+        "-t",
+        "8",
+        "-tb",
+        "8",
+        "-c",
+        "131072",
+        "--parallel",
+        "1",
+        "--threads-http",
+        "1",
+        "--host",
+        "127.0.0.1",
+        "--port",
+        "8080",
+        "-fa",
+        "on",
+        "-ctk",
+        "f16",
+        "-ctv",
+        "f16",
+        "--cache-ram",
+        "0",
+        "--no-warmup",
+        "--no-context-shift",
+        "-lv",
+        "4"
+      ],
+      "complete": true,
+      "rss_KiB": {
+        "VmHWM": 8614840,
+        "VmRSS": 8614840
+      },
+      "cgroup_peak_bytes": 6135459840,
+      "finished_utc": "2026-11-14T12:55:52.305726+00:00",
+      "kv_bytes": 4294967296,
+      "kv_evidence": "logs/A-contrast-131072.log:286",
+      "expected_bytes": 4294967296
+    },
+    {
+      "block": "D-parallel4",
+      "role": "main",
+      "ctx": 32768,
+      "k": "f16",
+      "v": "f16",
+      "parallel": 4,
+      "started_utc": "2026-11-14T12:55:52.306086+00:00",
+      "loadavg_1m": 3.09619140625,
+      "command": [
+        "docker",
+        "run",
+        "-d",
+        "--name",
+        "vk-kvcache-measure",
+        "--pull",
+        "never",
+        "--network",
+        "none",
+        "--memory",
+        "44g",
+        "--memory-swap",
+        "44g",
+        "--entrypoint",
+        "/usr/bin/nice",
+        "-v",
+        "<workspace>/.studio/ai-channel/kvcache/models:/models:ro",
+        "-v",
+        "<workspace>/.studio/ai-channel/specdec/models:/contrast:ro",
+        "-v",
+        "<workspace>/.studio/ai-channel/kvcache/demo:/demo:ro",
+        "-e",
+        "OMP_NUM_THREADS=8",
+        "-e",
+        "OPENBLAS_NUM_THREADS=8",
+        "ghcr.io/ggml-org/llama.cpp:full-b12211@sha256:8960de326dd60972cc4d442531f4efa006416d5896da2a39f0def0b55cbcb0c2",
+        "-n",
+        "10",
+        "/app/llama-server",
+        "-m",
+        "/models/Qwen3-4B-Q4_K_M.gguf",
+        "-ngl",
+        "0",
+        "-t",
+        "8",
+        "-tb",
+        "8",
+        "-c",
+        "32768",
+        "--parallel",
+        "4",
+        "--threads-http",
+        "1",
+        "--host",
+        "127.0.0.1",
+        "--port",
+        "8080",
+        "-fa",
+        "on",
+        "-ctk",
+        "f16",
+        "-ctv",
+        "f16",
+        "--cache-ram",
+        "0",
+        "--no-warmup",
+        "--no-context-shift",
+        "-lv",
+        "4"
+      ],
+      "complete": true,
+      "rss_KiB": {
+        "VmHWM": 8939412,
+        "VmRSS": 8939412
+      },
+      "cgroup_peak_bytes": 6686797824,
+      "finished_utc": "2026-11-14T12:55:55.111776+00:00",
+      "kv_bytes": 4831838208,
+      "kv_evidence": "logs/D-parallel4.log:270",
+      "expected_bytes": 4831838208
+    },
+    {
+      "block": "B-r1",
+      "role": "main",
+      "ctx": 8192,
+      "k": "f16",
+      "v": "f16",
+      "parallel": 1,
+      "started_utc": "2026-11-14T12:55:55.112065+00:00",
+      "loadavg_1m": 3.09619140625,
+      "command": [
+        "docker",
+        "run",
+        "-d",
+        "--name",
+        "vk-kvcache-measure",
+        "--pull",
+        "never",
+        "--network",
+        "none",
+        "--memory",
+        "44g",
+        "--memory-swap",
+        "44g",
+        "--entrypoint",
+        "/usr/bin/nice",
+        "-v",
+        "<workspace>/.studio/ai-channel/kvcache/models:/models:ro",
+        "-v",
+        "<workspace>/.studio/ai-channel/specdec/models:/contrast:ro",
+        "-v",
+        "<workspace>/.studio/ai-channel/kvcache/demo:/demo:ro",
+        "-e",
+        "OMP_NUM_THREADS=8",
+        "-e",
+        "OPENBLAS_NUM_THREADS=8",
+        "ghcr.io/ggml-org/llama.cpp:full-b12211@sha256:8960de326dd60972cc4d442531f4efa006416d5896da2a39f0def0b55cbcb0c2",
+        "-n",
+        "10",
+        "/app/llama-server",
+        "-m",
+        "/models/Qwen3-4B-Q4_K_M.gguf",
+        "-ngl",
+        "0",
+        "-t",
+        "8",
+        "-tb",
+        "8",
+        "-c",
+        "8192",
+        "--parallel",
+        "1",
+        "--threads-http",
+        "1",
+        "--host",
+        "127.0.0.1",
+        "--port",
+        "8080",
+        "-fa",
+        "on",
+        "-ctk",
+        "f16",
+        "-ctv",
+        "f16",
+        "--cache-ram",
+        "0",
+        "--no-warmup",
+        "--no-context-shift",
+        "-lv",
+        "4"
+      ],
+      "complete": true,
+      "rss_KiB": {
+        "VmHWM": 5492688,
+        "VmRSS": 5492688
+      },
+      "cgroup_peak_bytes": 3154849792,
+      "finished_utc": "2026-11-14T13:17:22.251276+00:00",
+      "kv_bytes": 1207959552,
+      "kv_evidence": "logs/B-r1.log:270",
+      "expected_bytes": 1207959552
+    },
+    {
+      "block": "B-r2",
+      "role": "main",
+      "ctx": 8192,
+      "k": "f16",
+      "v": "f16",
+      "parallel": 1,
+      "started_utc": "2026-11-14T13:17:22.251602+00:00",
+      "loadavg_1m": 9.44140625,
+      "command": [
+        "docker",
+        "run",
+        "-d",
+        "--name",
+        "vk-kvcache-measure",
+        "--pull",
+        "never",
+        "--network",
+        "none",
+        "--memory",
+        "44g",
+        "--memory-swap",
+        "44g",
+        "--entrypoint",
+        "/usr/bin/nice",
+        "-v",
+        "<workspace>/.studio/ai-channel/kvcache/models:/models:ro",
+        "-v",
+        "<workspace>/.studio/ai-channel/specdec/models:/contrast:ro",
+        "-v",
+        "<workspace>/.studio/ai-channel/kvcache/demo:/demo:ro",
+        "-e",
+        "OMP_NUM_THREADS=8",
+        "-e",
+        "OPENBLAS_NUM_THREADS=8",
+        "ghcr.io/ggml-org/llama.cpp:full-b12211@sha256:8960de326dd60972cc4d442531f4efa006416d5896da2a39f0def0b55cbcb0c2",
+        "-n",
+        "10",
+        "/app/llama-server",
+        "-m",
+        "/models/Qwen3-4B-Q4_K_M.gguf",
+        "-ngl",
+        "0",
+        "-t",
+        "8",
+        "-tb",
+        "8",
+        "-c",
+        "8192",
+        "--parallel",
+        "1",
+        "--threads-http",
+        "1",
+        "--host",
+        "127.0.0.1",
+        "--port",
+        "8080",
+        "-fa",
+        "on",
+        "-ctk",
+        "f16",
+        "-ctv",
+        "f16",
+        "--cache-ram",
+        "0",
+        "--no-warmup",
+        "--no-context-shift",
+        "-lv",
+        "4"
+      ],
+      "complete": true,
+      "rss_KiB": {
+        "VmHWM": 5496368,
+        "VmRSS": 5496368
+      },
+      "cgroup_peak_bytes": 3158147072,
+      "finished_utc": "2026-11-14T13:39:46.056943+00:00",
+      "kv_bytes": 1207959552,
+      "kv_evidence": "logs/B-r2.log:270",
+      "expected_bytes": 1207959552
+    },
+    {
+      "block": "B-r3",
+      "role": "main",
+      "ctx": 8192,
+      "k": "f16",
+      "v": "f16",
+      "parallel": 1,
+      "started_utc": "2026-11-14T13:39:46.057349+00:00",
+      "loadavg_1m": 10.2353515625,
+      "command": [
+        "docker",
+        "run",
+        "-d",
+        "--name",
+        "vk-kvcache-measure",
+        "--pull",
+        "never",
+        "--network",
+        "none",
+        "--memory",
+        "44g",
+        "--memory-swap",
+        "44g",
+        "--entrypoint",
+        "/usr/bin/nice",
+        "-v",
+        "<workspace>/.studio/ai-channel/kvcache/models:/models:ro",
+        "-v",
+        "<workspace>/.studio/ai-channel/specdec/models:/contrast:ro",
+        "-v",
+        "<workspace>/.studio/ai-channel/kvcache/demo:/demo:ro",
+        "-e",
+        "OMP_NUM_THREADS=8",
+        "-e",
+        "OPENBLAS_NUM_THREADS=8",
+        "ghcr.io/ggml-org/llama.cpp:full-b12211@sha256:8960de326dd60972cc4d442531f4efa006416d5896da2a39f0def0b55cbcb0c2",
+        "-n",
+        "10",
+        "/app/llama-server",
+        "-m",
+        "/models/Qwen3-4B-Q4_K_M.gguf",
+        "-ngl",
+        "0",
+        "-t",
+        "8",
+        "-tb",
+        "8",
+        "-c",
+        "8192",
+        "--parallel",
+        "1",
+        "--threads-http",
+        "1",
+        "--host",
+        "127.0.0.1",
+        "--port",
+        "8080",
+        "-fa",
+        "on",
+        "-ctk",
+        "f16",
+        "-ctv",
+        "f16",
+        "--cache-ram",
+        "0",
+        "--no-warmup",
+        "--no-context-shift",
+        "-lv",
+        "4"
+      ],
+      "complete": true,
+      "rss_KiB": {
+        "VmHWM": 5496404,
+        "VmRSS": 5496404
+      },
+      "cgroup_peak_bytes": 3158855680,
+      "finished_utc": "2026-11-14T14:01:45.258146+00:00",
+      "kv_bytes": 1207959552,
+      "kv_evidence": "logs/B-r3.log:270",
+      "expected_bytes": 1207959552
+    },
+    {
+      "block": "C-f16-f16",
+      "role": "main",
+      "ctx": 32768,
+      "k": "f16",
+      "v": "f16",
+      "parallel": 1,
+      "started_utc": "2026-11-14T14:23:32.265576+00:00",
+      "loadavg_1m": 5.93505859375,
+      "command": [
+        "docker",
+        "run",
+        "-d",
+        "--name",
+        "vk-kvcache-measure",
+        "--pull",
+        "never",
+        "--network",
+        "none",
+        "--memory",
+        "44g",
+        "--memory-swap",
+        "44g",
+        "--entrypoint",
+        "/usr/bin/nice",
+        "-v",
+        "<workspace>/.studio/ai-channel/kvcache/models:/models:ro",
+        "-v",
+        "<workspace>/.studio/ai-channel/specdec/models:/contrast:ro",
+        "-v",
+        "<workspace>/.studio/ai-channel/kvcache/demo:/demo:ro",
+        "-e",
+        "OMP_NUM_THREADS=8",
+        "-e",
+        "OPENBLAS_NUM_THREADS=8",
+        "ghcr.io/ggml-org/llama.cpp:full-b12211@sha256:8960de326dd60972cc4d442531f4efa006416d5896da2a39f0def0b55cbcb0c2",
+        "-n",
+        "10",
+        "/app/llama-server",
+        "-m",
+        "/models/Qwen3-4B-Q4_K_M.gguf",
+        "-ngl",
+        "0",
+        "-t",
+        "8",
+        "-tb",
+        "8",
+        "-c",
+        "32768",
+        "--parallel",
+        "1",
+        "--threads-http",
+        "1",
+        "--host",
+        "127.0.0.1",
+        "--port",
+        "8080",
+        "-fa",
+        "on",
+        "-ctk",
+        "f16",
+        "-ctv",
+        "f16",
+        "--cache-ram",
+        "0",
+        "--no-warmup",
+        "--no-context-shift",
+        "-lv",
+        "4"
+      ],
+      "complete": true,
+      "rss_KiB": {
+        "VmHWM": 9056496,
+        "VmRSS": 9056496
+      },
+      "cgroup_peak_bytes": 6811463680,
+      "finished_utc": "2026-11-14T14:32:07.989037+00:00",
+      "kv_bytes": 4831838208,
+      "kv_evidence": "logs/C-f16-f16.log:270",
+      "expected_bytes": 4831838208
+    },
+    {
+      "block": "C-q8_0-q8_0",
+      "role": "main",
+      "ctx": 32768,
+      "k": "q8_0",
+      "v": "q8_0",
+      "parallel": 1,
+      "started_utc": "2026-11-14T14:32:07.989392+00:00",
+      "loadavg_1m": 12.04443359375,
+      "command": [
+        "docker",
+        "run",
+        "-d",
+        "--name",
+        "vk-kvcache-measure",
+        "--pull",
+        "never",
+        "--network",
+        "none",
+        "--memory",
+        "44g",
+        "--memory-swap",
+        "44g",
+        "--entrypoint",
+        "/usr/bin/nice",
+        "-v",
+        "<workspace>/.studio/ai-channel/kvcache/models:/models:ro",
+        "-v",
+        "<workspace>/.studio/ai-channel/specdec/models:/contrast:ro",
+        "-v",
+        "<workspace>/.studio/ai-channel/kvcache/demo:/demo:ro",
+        "-e",
+        "OMP_NUM_THREADS=8",
+        "-e",
+        "OPENBLAS_NUM_THREADS=8",
+        "ghcr.io/ggml-org/llama.cpp:full-b12211@sha256:8960de326dd60972cc4d442531f4efa006416d5896da2a39f0def0b55cbcb0c2",
+        "-n",
+        "10",
+        "/app/llama-server",
+        "-m",
+        "/models/Qwen3-4B-Q4_K_M.gguf",
+        "-ngl",
+        "0",
+        "-t",
+        "8",
+        "-tb",
+        "8",
+        "-c",
+        "32768",
+        "--parallel",
+        "1",
+        "--threads-http",
+        "1",
+        "--host",
+        "127.0.0.1",
+        "--port",
+        "8080",
+        "-fa",
+        "on",
+        "-ctk",
+        "q8_0",
+        "-ctv",
+        "q8_0",
+        "--cache-ram",
+        "0",
+        "--no-warmup",
+        "--no-context-shift",
+        "-lv",
+        "4"
+      ],
+      "complete": true,
+      "rss_KiB": {
+        "VmHWM": 6849280,
+        "VmRSS": 6849280
+      },
+      "cgroup_peak_bytes": 4547706880,
+      "finished_utc": "2026-11-14T15:23:43.046647+00:00",
+      "kv_bytes": 2566914048,
+      "kv_evidence": "logs/C-q8_0-q8_0.log:270",
+      "expected_bytes": 2566914048
+    },
+    {
+      "block": "C-q4_0-q4_0",
+      "role": "main",
+      "ctx": 32768,
+      "k": "q4_0",
+      "v": "q4_0",
+      "parallel": 1,
+      "started_utc": "2026-11-14T15:23:43.046984+00:00",
+      "loadavg_1m": 9.90576171875,
+      "command": [
+        "docker",
+        "run",
+        "-d",
+        "--name",
+        "vk-kvcache-measure",
+        "--pull",
+        "never",
+        "--network",
+        "none",
+        "--memory",
+        "44g",
+        "--memory-swap",
+        "44g",
+        "--entrypoint",
+        "/usr/bin/nice",
+        "-v",
+        "<workspace>/.studio/ai-channel/kvcache/models:/models:ro",
+        "-v",
+        "<workspace>/.studio/ai-channel/specdec/models:/contrast:ro",
+        "-v",
+        "<workspace>/.studio/ai-channel/kvcache/demo:/demo:ro",
+        "-e",
+        "OMP_NUM_THREADS=8",
+        "-e",
+        "OPENBLAS_NUM_THREADS=8",
+        "ghcr.io/ggml-org/llama.cpp:full-b12211@sha256:8960de326dd60972cc4d442531f4efa006416d5896da2a39f0def0b55cbcb0c2",
+        "-n",
+        "10",
+        "/app/llama-server",
+        "-m",
+        "/models/Qwen3-4B-Q4_K_M.gguf",
+        "-ngl",
+        "0",
+        "-t",
+        "8",
+        "-tb",
+        "8",
+        "-c",
+        "32768",
+        "--parallel",
+        "1",
+        "--threads-http",
+        "1",
+        "--host",
+        "127.0.0.1",
+        "--port",
+        "8080",
+        "-fa",
+        "on",
+        "-ctk",
+        "q4_0",
+        "-ctv",
+        "q4_0",
+        "--cache-ram",
+        "0",
+        "--no-warmup",
+        "--no-context-shift",
+        "-lv",
+        "4"
+      ],
+      "complete": true,
+      "rss_KiB": {
+        "VmHWM": 5671612,
+        "VmRSS": 5671612
+      },
+      "cgroup_peak_bytes": 3338747904,
+      "finished_utc": "2026-11-14T16:00:13.824975+00:00",
+      "kv_bytes": 1358954496,
+      "kv_evidence": "logs/C-q4_0-q4_0.log:270",
+      "expected_bytes": 1358954496
+    },
+    {
+      "block": "C-q8_0-q4_0",
+      "role": "main",
+      "ctx": 32768,
+      "k": "q8_0",
+      "v": "q4_0",
+      "parallel": 1,
+      "started_utc": "2026-11-14T16:00:13.825328+00:00",
+      "loadavg_1m": 10.099609375,
+      "command": [
+        "docker",
+        "run",
+        "-d",
+        "--name",
+        "vk-kvcache-measure",
+        "--pull",
+        "never",
+        "--network",
+        "none",
+        "--memory",
+        "44g",
+        "--memory-swap",
+        "44g",
+        "--entrypoint",
+        "/usr/bin/nice",
+        "-v",
+        "<workspace>/.studio/ai-channel/kvcache/models:/models:ro",
+        "-v",
+        "<workspace>/.studio/ai-channel/specdec/models:/contrast:ro",
+        "-v",
+        "<workspace>/.studio/ai-channel/kvcache/demo:/demo:ro",
+        "-e",
+        "OMP_NUM_THREADS=8",
+        "-e",
+        "OPENBLAS_NUM_THREADS=8",
+        "ghcr.io/ggml-org/llama.cpp:full-b12211@sha256:8960de326dd60972cc4d442531f4efa006416d5896da2a39f0def0b55cbcb0c2",
+        "-n",
+        "10",
+        "/app/llama-server",
+        "-m",
+        "/models/Qwen3-4B-Q4_K_M.gguf",
+        "-ngl",
+        "0",
+        "-t",
+        "8",
+        "-tb",
+        "8",
+        "-c",
+        "32768",
+        "--parallel",
+        "1",
+        "--threads-http",
+        "1",
+        "--host",
+        "127.0.0.1",
+        "--port",
+        "8080",
+        "-fa",
+        "on",
+        "-ctk",
+        "q8_0",
+        "-ctv",
+        "q4_0",
+        "--cache-ram",
+        "0",
+        "--no-warmup",
+        "--no-context-shift",
+        "-lv",
+        "4"
+      ],
+      "complete": true,
+      "rss_KiB": {
+        "VmHWM": 6263212,
+        "VmRSS": 6263212
+      },
+      "cgroup_peak_bytes": 3946967040,
+      "finished_utc": "2026-11-14T16:42:17.635377+00:00",
+      "kv_bytes": 1962934272,
+      "kv_evidence": "logs/C-q8_0-q4_0.log:270",
+      "expected_bytes": 1962934272
+    },
+    {
+      "block": "A-main-boundary-16896",
+      "role": "main",
+      "ctx": 16896,
+      "k": "f16",
+      "v": "f16",
+      "parallel": 1,
+      "started_utc": "2026-11-14T16:42:22.412294+00:00",
+      "loadavg_1m": 9.3212890625,
+      "command": [
+        "docker",
+        "run",
+        "-d",
+        "--name",
+        "vk-kvcache-measure",
+        "--pull",
+        "never",
+        "--network",
+        "none",
+        "--memory",
+        "44g",
+        "--memory-swap",
+        "44g",
+        "--entrypoint",
+        "/usr/bin/nice",
+        "-v",
+        "<workspace>/.studio/ai-channel/kvcache/models:/models:ro",
+        "-v",
+        "<workspace>/.studio/ai-channel/specdec/models:/contrast:ro",
+        "-v",
+        "<workspace>/.studio/ai-channel/kvcache/demo:/demo:ro",
+        "-e",
+        "OMP_NUM_THREADS=8",
+        "-e",
+        "OPENBLAS_NUM_THREADS=8",
+        "ghcr.io/ggml-org/llama.cpp:full-b12211@sha256:8960de326dd60972cc4d442531f4efa006416d5896da2a39f0def0b55cbcb0c2",
+        "-n",
+        "10",
+        "/app/llama-server",
+        "-m",
+        "/models/Qwen3-4B-Q4_K_M.gguf",
+        "-ngl",
+        "0",
+        "-t",
+        "8",
+        "-tb",
+        "8",
+        "-c",
+        "16896",
+        "--parallel",
+        "1",
+        "--threads-http",
+        "1",
+        "--host",
+        "127.0.0.1",
+        "--port",
+        "8080",
+        "-fa",
+        "on",
+        "-ctk",
+        "f16",
+        "-ctv",
+        "f16",
+        "--cache-ram",
+        "0",
+        "--no-warmup",
+        "--no-context-shift",
+        "-lv",
+        "4"
+      ],
+      "complete": true,
+      "rss_KiB": {
+        "VmHWM": 6669968,
+        "VmRSS": 6669968
+      },
+      "cgroup_peak_bytes": 4383862784,
+      "finished_utc": "2026-11-14T16:42:23.857204+00:00",
+      "kv_bytes": 2491416576,
+      "kv_evidence": "logs/A-main-boundary-16896.log:270",
+      "expected_bytes": 2491416576
+    },
+    {
+      "block": "A-main-boundary-17152",
+      "role": "main",
+      "ctx": 17152,
+      "k": "f16",
+      "v": "f16",
+      "parallel": 1,
+      "started_utc": "2026-11-14T16:42:23.857618+00:00",
+      "loadavg_1m": 9.3212890625,
+      "command": [
+        "docker",
+        "run",
+        "-d",
+        "--name",
+        "vk-kvcache-measure",
+        "--pull",
+        "never",
+        "--network",
+        "none",
+        "--memory",
+        "44g",
+        "--memory-swap",
+        "44g",
+        "--entrypoint",
+        "/usr/bin/nice",
+        "-v",
+        "<workspace>/.studio/ai-channel/kvcache/models:/models:ro",
+        "-v",
+        "<workspace>/.studio/ai-channel/specdec/models:/contrast:ro",
+        "-v",
+        "<workspace>/.studio/ai-channel/kvcache/demo:/demo:ro",
+        "-e",
+        "OMP_NUM_THREADS=8",
+        "-e",
+        "OPENBLAS_NUM_THREADS=8",
+        "ghcr.io/ggml-org/llama.cpp:full-b12211@sha256:8960de326dd60972cc4d442531f4efa006416d5896da2a39f0def0b55cbcb0c2",
+        "-n",
+        "10",
+        "/app/llama-server",
+        "-m",
+        "/models/Qwen3-4B-Q4_K_M.gguf",
+        "-ngl",
+        "0",
+        "-t",
+        "8",
+        "-tb",
+        "8",
+        "-c",
+        "17152",
+        "--parallel",
+        "1",
+        "--threads-http",
+        "1",
+        "--host",
+        "127.0.0.1",
+        "--port",
+        "8080",
+        "-fa",
+        "on",
+        "-ctk",
+        "f16",
+        "-ctv",
+        "f16",
+        "--cache-ram",
+        "0",
+        "--no-warmup",
+        "--no-context-shift",
+        "-lv",
+        "4"
+      ],
+      "complete": true,
+      "rss_KiB": {
+        "VmHWM": 6706588,
+        "VmRSS": 6706588
+      },
+      "cgroup_peak_bytes": 4398780416,
+      "finished_utc": "2026-11-14T16:42:25.303737+00:00",
+      "kv_bytes": 2529165312,
+      "kv_evidence": "logs/A-main-boundary-17152.log:270",
+      "expected_bytes": 2529165312
+    },
+    {
+      "block": "A-main-boundary-40960",
+      "role": "main",
+      "ctx": 40960,
+      "k": "f16",
+      "v": "f16",
+      "parallel": 1,
+      "started_utc": "2026-11-14T16:42:25.304099+00:00",
+      "loadavg_1m": 8.89501953125,
+      "command": [
+        "docker",
+        "run",
+        "-d",
+        "--name",
+        "vk-kvcache-measure",
+        "--pull",
+        "never",
+        "--network",
+        "none",
+        "--memory",
+        "44g",
+        "--memory-swap",
+        "44g",
+        "--entrypoint",
+        "/usr/bin/nice",
+        "-v",
+        "<workspace>/.studio/ai-channel/kvcache/models:/models:ro",
+        "-v",
+        "<workspace>/.studio/ai-channel/specdec/models:/contrast:ro",
+        "-v",
+        "<workspace>/.studio/ai-channel/kvcache/demo:/demo:ro",
+        "-e",
+        "OMP_NUM_THREADS=8",
+        "-e",
+        "OPENBLAS_NUM_THREADS=8",
+        "ghcr.io/ggml-org/llama.cpp:full-b12211@sha256:8960de326dd60972cc4d442531f4efa006416d5896da2a39f0def0b55cbcb0c2",
+        "-n",
+        "10",
+        "/app/llama-server",
+        "-m",
+        "/models/Qwen3-4B-Q4_K_M.gguf",
+        "-ngl",
+        "0",
+        "-t",
+        "8",
+        "-tb",
+        "8",
+        "-c",
+        "40960",
+        "--parallel",
+        "1",
+        "--threads-http",
+        "1",
+        "--host",
+        "127.0.0.1",
+        "--port",
+        "8080",
+        "-fa",
+        "on",
+        "-ctk",
+        "f16",
+        "-ctv",
+        "f16",
+        "--cache-ram",
+        "0",
+        "--no-warmup",
+        "--no-context-shift",
+        "-lv",
+        "4"
+      ],
+      "complete": true,
+      "rss_KiB": {
+        "VmHWM": 10117944,
+        "VmRSS": 10117944
+      },
+      "cgroup_peak_bytes": 7895678976,
+      "finished_utc": "2026-11-14T16:42:27.935477+00:00",
+      "kv_bytes": 6039797760,
+      "kv_evidence": "logs/A-main-boundary-40960.log:269",
+      "expected_bytes": 6039797760
+    },
+    {
+      "block": "A-contrast-boundary-84736",
+      "role": "contrast",
+      "ctx": 84736,
+      "k": "f16",
+      "v": "f16",
+      "parallel": 1,
+      "started_utc": "2026-11-14T16:42:27.935845+00:00",
+      "loadavg_1m": 8.89501953125,
+      "command": [
+        "docker",
+        "run",
+        "-d",
+        "--name",
+        "vk-kvcache-measure",
+        "--pull",
+        "never",
+        "--network",
+        "none",
+        "--memory",
+        "44g",
+        "--memory-swap",
+        "44g",
+        "--entrypoint",
+        "/usr/bin/nice",
+        "-v",
+        "<workspace>/.studio/ai-channel/kvcache/models:/models:ro",
+        "-v",
+        "<workspace>/.studio/ai-channel/specdec/models:/contrast:ro",
+        "-v",
+        "<workspace>/.studio/ai-channel/kvcache/demo:/demo:ro",
+        "-e",
+        "OMP_NUM_THREADS=8",
+        "-e",
+        "OPENBLAS_NUM_THREADS=8",
+        "ghcr.io/ggml-org/llama.cpp:full-b12211@sha256:8960de326dd60972cc4d442531f4efa006416d5896da2a39f0def0b55cbcb0c2",
+        "-n",
+        "10",
+        "/app/llama-server",
+        "-m",
+        "/contrast/qwen3.5-4b-q4_k_m.gguf",
+        "-ngl",
+        "0",
+        "-t",
+        "8",
+        "-tb",
+        "8",
+        "-c",
+        "84736",
+        "--parallel",
+        "1",
+        "--threads-http",
+        "1",
+        "--host",
+        "127.0.0.1",
+        "--port",
+        "8080",
+        "-fa",
+        "on",
+        "-ctk",
+        "f16",
+        "-ctv",
+        "f16",
+        "--cache-ram",
+        "0",
+        "--no-warmup",
+        "--no-context-shift",
+        "-lv",
+        "4"
+      ],
+      "complete": true,
+      "rss_KiB": {
+        "VmHWM": 7154836,
+        "VmRSS": 7154836
+      },
+      "cgroup_peak_bytes": 4642787328,
+      "finished_utc": "2026-11-14T16:42:29.413960+00:00",
+      "kv_bytes": 2776629248,
+      "kv_evidence": "logs/A-contrast-boundary-84736.log:286",
+      "expected_bytes": 2776629248
+    },
+    {
+      "block": "A-contrast-boundary-84992",
+      "role": "contrast",
+      "ctx": 84992,
+      "k": "f16",
+      "v": "f16",
+      "parallel": 1,
+      "started_utc": "2026-11-14T16:42:29.414329+00:00",
+      "loadavg_1m": 8.89501953125,
+      "command": [
+        "docker",
+        "run",
+        "-d",
+        "--name",
+        "vk-kvcache-measure",
+        "--pull",
+        "never",
+        "--network",
+        "none",
+        "--memory",
+        "44g",
+        "--memory-swap",
+        "44g",
+        "--entrypoint",
+        "/usr/bin/nice",
+        "-v",
+        "<workspace>/.studio/ai-channel/kvcache/models:/models:ro",
+        "-v",
+        "<workspace>/.studio/ai-channel/specdec/models:/contrast:ro",
+        "-v",
+        "<workspace>/.studio/ai-channel/kvcache/demo:/demo:ro",
+        "-e",
+        "OMP_NUM_THREADS=8",
+        "-e",
+        "OPENBLAS_NUM_THREADS=8",
+        "ghcr.io/ggml-org/llama.cpp:full-b12211@sha256:8960de326dd60972cc4d442531f4efa006416d5896da2a39f0def0b55cbcb0c2",
+        "-n",
+        "10",
+        "/app/llama-server",
+        "-m",
+        "/contrast/qwen3.5-4b-q4_k_m.gguf",
+        "-ngl",
+        "0",
+        "-t",
+        "8",
+        "-tb",
+        "8",
+        "-c",
+        "84992",
+        "--parallel",
+        "1",
+        "--threads-http",
+        "1",
+        "--host",
+        "127.0.0.1",
+        "--port",
+        "8080",
+        "-fa",
+        "on",
+        "-ctk",
+        "f16",
+        "-ctv",
+        "f16",
+        "--cache-ram",
+        "0",
+        "--no-warmup",
+        "--no-context-shift",
+        "-lv",
+        "4"
+      ],
+      "complete": true,
+      "rss_KiB": {
+        "VmHWM": 7170176,
+        "VmRSS": 7170176
+      },
+      "cgroup_peak_bytes": 4661321728,
+      "finished_utc": "2026-11-14T16:42:30.892237+00:00",
+      "kv_bytes": 2785017856,
+      "kv_evidence": "logs/A-contrast-boundary-84992.log:286",
+      "expected_bytes": 2785017856
+    }
+  ],
+  "reuse": [
+    {
+      "repeat": 1,
+      "reuse_total_s": 22.969991527032107,
+      "no_reuse_total_s": 1258.4978655177983,
+      "reuse_first_s": 18.70314887101995,
+      "reuse_64th_s": 22.96972581499722,
+      "no_reuse_first_s": 18.530030113004614,
+      "no_reuse_64th_s": 20.87137927598087,
+      "no_reuse_64th_cumulative_s": 1258.4978655177983,
+      "identical": true,
+      "identical_ids": true,
+      "first_difference": null
+    },
+    {
+      "repeat": 2,
+      "reuse_total_s": 23.714059752994217,
+      "no_reuse_total_s": 1314.2935688528232,
+      "reuse_first_s": 19.319877375965007,
+      "reuse_64th_s": 23.713789622008335,
+      "no_reuse_first_s": 19.271415842988063,
+      "no_reuse_64th_s": 20.292175679991487,
+      "no_reuse_64th_cumulative_s": 1314.2935688528232,
+      "identical": true,
+      "identical_ids": true,
+      "first_difference": null
+    },
+    {
+      "repeat": 3,
+      "reuse_total_s": 23.41271154396236,
+      "no_reuse_total_s": 1290.0331810231437,
+      "reuse_first_s": 19.088539967953693,
+      "reuse_64th_s": 23.412445082969498,
+      "no_reuse_first_s": 19.75910261098761,
+      "no_reuse_64th_s": 22.41308927902719,
+      "no_reuse_64th_cumulative_s": 1290.0331810231437,
+      "identical": true,
+      "identical_ids": true,
+      "first_difference": null
+    }
+  ],
+  "quantized": {
+    "f16-f16": {
+      "correct": 0,
+      "first_line_correct": 19,
+      "exact_matches": 20,
+      "prompt_tps": 74.75619165130723,
+      "generation_tps": 4.075011171586192,
+      "pairs": [
+        {
+          "id": "T01",
+          "expected": "419",
+          "output": " 419\nOkay, let's see. The user provided a storage ledger with multiple entries, and they want the access code for vault-01",
+          "correct": false,
+          "first_line_correct": true,
+          "same_text": true,
+          "first_difference": null,
+          "prompt_tps": 74.75619165130723,
+          "generation_tps": 4.051459812851308,
+          "load": 5.69970703125,
+          "token_limit": true,
+          "evaluated_prompt_tokens": 24576,
+          "reused_tokens": 0
+        },
+        {
+          "id": "T02",
+          "expected": "556",
+          "output": " 556\nThe access code for vault-02 is 556. This is the only assigned code for that vault.\nAnswer: ",
+          "correct": false,
+          "first_line_correct": true,
+          "same_text": true,
+          "first_difference": null,
+          "prompt_tps": 5.54909531249422,
+          "generation_tps": 4.03994383696142,
+          "load": 12.39990234375,
+          "token_limit": true,
+          "evaluated_prompt_tokens": 9,
+          "reused_tokens": 24567
+        },
+        {
+          "id": "T03",
+          "expected": "693",
+          "output": " 693\nOkay, let's see. The user is asking for the access code of vault-03. I need to look through the provided",
+          "correct": false,
+          "first_line_correct": true,
+          "same_text": true,
+          "first_difference": null,
+          "prompt_tps": 6.116291081088428,
+          "generation_tps": 4.103134265141889,
+          "load": 12.5283203125,
+          "token_limit": true,
+          "evaluated_prompt_tokens": 9,
+          "reused_tokens": 24567
+        },
+        {
+          "id": "T04",
+          "expected": "830",
+          "output": " 830\nOkay, let's see. The user provided a storage ledger with multiple entries, and they want the access code for vault-04",
+          "correct": false,
+          "first_line_correct": true,
+          "same_text": true,
+          "first_difference": null,
+          "prompt_tps": 6.018750413789091,
+          "generation_tps": 4.032377651158229,
+          "load": 12.2255859375,
+          "token_limit": true,
+          "evaluated_prompt_tokens": 9,
+          "reused_tokens": 24567
+        },
+        {
+          "id": "T05",
+          "expected": "967",
+          "output": " 967\nOkay, let's see. The user provided a storage ledger with multiple entries, and they want the access code for vault-05",
+          "correct": false,
+          "first_line_correct": true,
+          "same_text": true,
+          "first_difference": null,
+          "prompt_tps": 6.118465733532659,
+          "generation_tps": 4.033312559605204,
+          "load": 12.33837890625,
+          "token_limit": true,
+          "evaluated_prompt_tokens": 9,
+          "reused_tokens": 24567
+        },
+        {
+          "id": "T06",
+          "expected": "104",
+          "output": " 104\nOkay, let's see. The user provided a storage ledger with multiple entries, and they want the access code for vault-06",
+          "correct": false,
+          "first_line_correct": true,
+          "same_text": true,
+          "first_difference": null,
+          "prompt_tps": 6.133188317502893,
+          "generation_tps": 4.112054274871728,
+          "load": 12.88916015625,
+          "token_limit": true,
+          "evaluated_prompt_tokens": 9,
+          "reused_tokens": 24567
+        },
+        {
+          "id": "T07",
+          "expected": "241",
+          "output": " 241\nThe access code for vault-07 is 241. This is the only assigned code for that vault.\nThe access code",
+          "correct": false,
+          "first_line_correct": true,
+          "same_text": true,
+          "first_difference": null,
+          "prompt_tps": 6.058456022677474,
+          "generation_tps": 3.981934349206137,
+          "load": 12.52490234375,
+          "token_limit": true,
+          "evaluated_prompt_tokens": 9,
+          "reused_tokens": 24567
+        },
+        {
+          "id": "T08",
+          "expected": "378",
+          "output": " 378\nOkay, let's see. The user provided a storage ledger with multiple entries, and they want the access code for vault-08",
+          "correct": false,
+          "first_line_correct": true,
+          "same_text": true,
+          "first_difference": null,
+          "prompt_tps": 5.790067589388993,
+          "generation_tps": 4.073466412166997,
+          "load": 12.142578125,
+          "token_limit": true,
+          "evaluated_prompt_tokens": 9,
+          "reused_tokens": 24567
+        },
+        {
+          "id": "T09",
+          "expected": "515",
+          "output": " 515\nThe access code for vault-09 is 515. This is the only assigned code for that vault.\nThe access code",
+          "correct": false,
+          "first_line_correct": true,
+          "same_text": true,
+          "first_difference": null,
+          "prompt_tps": 5.945263936689545,
+          "generation_tps": 4.113122545975091,
+          "load": 12.29150390625,
+          "token_limit": true,
+          "evaluated_prompt_tokens": 9,
+          "reused_tokens": 24567
+        },
+        {
+          "id": "T10",
+          "expected": "652",
+          "output": " 652\nThe access code for vault-10 is 652. This is the only assigned code for that vault.\nAnswer: ",
+          "correct": false,
+          "first_line_correct": true,
+          "same_text": true,
+          "first_difference": null,
+          "prompt_tps": 6.012921768881326,
+          "generation_tps": 4.098701491702576,
+          "load": 12.15380859375,
+          "token_limit": true,
+          "evaluated_prompt_tokens": 10,
+          "reused_tokens": 24566
+        },
+        {
+          "id": "T11",
+          "expected": "789",
+          "output": " 063\n\nThe access code for vault-11 is 063. This is the only assigned code for that vault.\nThe answer is",
+          "correct": false,
+          "first_line_correct": false,
+          "same_text": true,
+          "first_difference": null,
+          "prompt_tps": 6.313428030077172,
+          "generation_tps": 4.085048603512957,
+          "load": 12.197265625,
+          "token_limit": true,
+          "evaluated_prompt_tokens": 9,
+          "reused_tokens": 24567
+        },
+        {
+          "id": "T12",
+          "expected": "926",
+          "output": " 926\nOkay, let's see. The user provided a storage ledger with multiple entries, and they want the access code for vault-12",
+          "correct": false,
+          "first_line_correct": true,
+          "same_text": true,
+          "first_difference": null,
+          "prompt_tps": 5.946764563626417,
+          "generation_tps": 4.096622136824537,
+          "load": 12.1796875,
+          "token_limit": true,
+          "evaluated_prompt_tokens": 9,
+          "reused_tokens": 24567
+        },
+        {
+          "id": "T13",
+          "expected": "063",
+          "output": " 063\nThe access code for vault-13 is 063. This is the only assigned code for that vault.\nAnswer: ",
+          "correct": false,
+          "first_line_correct": true,
+          "same_text": true,
+          "first_difference": null,
+          "prompt_tps": 6.179090643826917,
+          "generation_tps": 4.082195399418458,
+          "load": 12.2802734375,
+          "token_limit": true,
+          "evaluated_prompt_tokens": 9,
+          "reused_tokens": 24567
+        },
+        {
+          "id": "T14",
+          "expected": "200",
+          "output": " 200\nThe access code for vault-14 is 200. This is the only assigned code for that vault.\nThe access code",
+          "correct": false,
+          "first_line_correct": true,
+          "same_text": true,
+          "first_difference": null,
+          "prompt_tps": 6.051156476855335,
+          "generation_tps": 4.123037832995156,
+          "load": 12.07080078125,
+          "token_limit": true,
+          "evaluated_prompt_tokens": 9,
+          "reused_tokens": 24567
+        },
+        {
+          "id": "T15",
+          "expected": "337",
+          "output": " 337\nThe access code for vault-15 is 337. This is the only assigned code for that vault.\nAnswer: ",
+          "correct": false,
+          "first_line_correct": true,
+          "same_text": true,
+          "first_difference": null,
+          "prompt_tps": 6.203555188550168,
+          "generation_tps": 3.964641029251505,
+          "load": 11.82470703125,
+          "token_limit": true,
+          "evaluated_prompt_tokens": 9,
+          "reused_tokens": 24567
+        },
+        {
+          "id": "T16",
+          "expected": "474",
+          "output": " 474\nOkay, let's see. The user provided a storage ledger with multiple entries, and they want the access code for vault-16",
+          "correct": false,
+          "first_line_correct": true,
+          "same_text": true,
+          "first_difference": null,
+          "prompt_tps": 6.6374226740258475,
+          "generation_tps": 4.069720348509845,
+          "load": 11.9443359375,
+          "token_limit": true,
+          "evaluated_prompt_tokens": 9,
+          "reused_tokens": 24567
+        },
+        {
+          "id": "T17",
+          "expected": "611",
+          "output": " 611\nThe access code for vault-17 is 611. This is the only assigned code for that vault.\nThe access code",
+          "correct": false,
+          "first_line_correct": true,
+          "same_text": true,
+          "first_difference": null,
+          "prompt_tps": 5.920589111773487,
+          "generation_tps": 4.0740858047153985,
+          "load": 11.55859375,
+          "token_limit": true,
+          "evaluated_prompt_tokens": 9,
+          "reused_tokens": 24567
+        },
+        {
+          "id": "T18",
+          "expected": "748",
+          "output": " 748\nOkay, let's see. The user provided a storage ledger with multiple entries, and they want the access code for vault-18",
+          "correct": false,
+          "first_line_correct": true,
+          "same_text": true,
+          "first_difference": null,
+          "prompt_tps": 6.0135384796304745,
+          "generation_tps": 4.075936538456987,
+          "load": 11.318359375,
+          "token_limit": true,
+          "evaluated_prompt_tokens": 9,
+          "reused_tokens": 24567
+        },
+        {
+          "id": "T19",
+          "expected": "885",
+          "output": " 885\nOkay, let's see. The user provided a storage ledger with multiple entries, and they want the access code for vault-19",
+          "correct": false,
+          "first_line_correct": true,
+          "same_text": true,
+          "first_difference": null,
+          "prompt_tps": 5.9012639851760245,
+          "generation_tps": 4.06663669599149,
+          "load": 11.6376953125,
+          "token_limit": true,
+          "evaluated_prompt_tokens": 9,
+          "reused_tokens": 24567
+        },
+        {
+          "id": "T20",
+          "expected": "022",
+          "output": " 022\nThe access code for vault-20 is 022. This is the only assigned code for that vault.\nThe storage room",
+          "correct": false,
+          "first_line_correct": true,
+          "same_text": true,
+          "first_difference": null,
+          "prompt_tps": 6.234958163430724,
+          "generation_tps": 4.113958235626825,
+          "load": 11.69970703125,
+          "token_limit": true,
+          "evaluated_prompt_tokens": 10,
+          "reused_tokens": 24566
+        }
+      ]
+    },
+    "q8_0-q8_0": {
+      "correct": 0,
+      "first_line_correct": 20,
+      "exact_matches": 12,
+      "prompt_tps": 8.913527596877707,
+      "generation_tps": 2.272339752136586,
+      "pairs": [
+        {
+          "id": "T01",
+          "expected": "419",
+          "output": " 419\nOkay, let's see. The user provided a storage ledger with multiple entries, and they want the access code for vault-01",
+          "correct": false,
+          "first_line_correct": true,
+          "same_text": true,
+          "first_difference": null,
+          "prompt_tps": 8.913527596877707,
+          "generation_tps": 2.2653241138052067,
+          "load": 11.31982421875,
+          "token_limit": true,
+          "evaluated_prompt_tokens": 24576,
+          "reused_tokens": 0
+        },
+        {
+          "id": "T02",
+          "expected": "556",
+          "output": " 556\nOkay, let's see. The user provided a storage ledger with multiple entries, and they want the access code for vault-02",
+          "correct": false,
+          "first_line_correct": true,
+          "same_text": false,
+          "first_difference": 6,
+          "prompt_tps": 2.87110096513654,
+          "generation_tps": 2.246231132111359,
+          "load": 10.1767578125,
+          "token_limit": true,
+          "evaluated_prompt_tokens": 9,
+          "reused_tokens": 24567
+        },
+        {
+          "id": "T03",
+          "expected": "693",
+          "output": " 693\nOkay, let's see. The user provided a storage ledger with multiple entries, and they want the access code for vault-03",
+          "correct": false,
+          "first_line_correct": true,
+          "same_text": false,
+          "first_difference": 14,
+          "prompt_tps": 2.7625793282327935,
+          "generation_tps": 2.270325122275317,
+          "load": 10.291015625,
+          "token_limit": true,
+          "evaluated_prompt_tokens": 9,
+          "reused_tokens": 24567
+        },
+        {
+          "id": "T04",
+          "expected": "830",
+          "output": " 830\nOkay, let's see. The user is asking for the access code for vault-04. I need to look through the provided",
+          "correct": false,
+          "first_line_correct": true,
+          "same_text": false,
+          "first_difference": 14,
+          "prompt_tps": 2.808947559133808,
+          "generation_tps": 2.2719707264633726,
+          "load": 10.4853515625,
+          "token_limit": true,
+          "evaluated_prompt_tokens": 9,
+          "reused_tokens": 24567
+        },
+        {
+          "id": "T05",
+          "expected": "967",
+          "output": " 967\nAnswer: 967\nAnswer: 967\nAnswer: 967\nAnswer: 967",
+          "correct": false,
+          "first_line_correct": true,
+          "same_text": false,
+          "first_difference": 6,
+          "prompt_tps": 2.7395750797292444,
+          "generation_tps": 2.243578354042888,
+          "load": 10.38330078125,
+          "token_limit": true,
+          "evaluated_prompt_tokens": 9,
+          "reused_tokens": 24567
+        },
+        {
+          "id": "T06",
+          "expected": "104",
+          "output": " 104\nOkay, let's see. The user provided a storage ledger with multiple entries, and they want the access code for vault-06",
+          "correct": false,
+          "first_line_correct": true,
+          "same_text": true,
+          "first_difference": null,
+          "prompt_tps": 2.784680174840786,
+          "generation_tps": 2.2478408401065852,
+          "load": 10.36572265625,
+          "token_limit": true,
+          "evaluated_prompt_tokens": 9,
+          "reused_tokens": 24567
+        },
+        {
+          "id": "T07",
+          "expected": "241",
+          "output": " 241\nThe access code for vault-07 is 241. This is the only assigned code for that vault.\nThe access code",
+          "correct": false,
+          "first_line_correct": true,
+          "same_text": true,
+          "first_difference": null,
+          "prompt_tps": 2.8068056929504266,
+          "generation_tps": 2.3008996294883595,
+          "load": 10.107421875,
+          "token_limit": true,
+          "evaluated_prompt_tokens": 9,
+          "reused_tokens": 24567
+        },
+        {
+          "id": "T08",
+          "expected": "378",
+          "output": " 378\nOkay, let's see. The user provided a storage ledger with multiple entries, and they want the access code for vault-08",
+          "correct": false,
+          "first_line_correct": true,
+          "same_text": true,
+          "first_difference": null,
+          "prompt_tps": 2.873299006987863,
+          "generation_tps": 2.2823561719880536,
+          "load": 9.72021484375,
+          "token_limit": true,
+          "evaluated_prompt_tokens": 9,
+          "reused_tokens": 24567
+        },
+        {
+          "id": "T09",
+          "expected": "515",
+          "output": " 515\nThe access code for vault-09 is 515. This is the only assigned code for that vault.\nThe access code",
+          "correct": false,
+          "first_line_correct": true,
+          "same_text": true,
+          "first_difference": null,
+          "prompt_tps": 2.817763935251542,
+          "generation_tps": 2.104733293968031,
+          "load": 9.521484375,
+          "token_limit": true,
+          "evaluated_prompt_tokens": 9,
+          "reused_tokens": 24567
+        },
+        {
+          "id": "T10",
+          "expected": "652",
+          "output": " 652\nOkay, let's see. The user provided a storage ledger with multiple entries, and they want the access code for vault-10",
+          "correct": false,
+          "first_line_correct": true,
+          "same_text": false,
+          "first_difference": 6,
+          "prompt_tps": 2.7739512661145764,
+          "generation_tps": 2.263486307769738,
+          "load": 9.6953125,
+          "token_limit": true,
+          "evaluated_prompt_tokens": 10,
+          "reused_tokens": 24566
+        },
+        {
+          "id": "T11",
+          "expected": "789",
+          "output": " 789\nAnswer: 789\nAnswer: 789\nAnswer: 789\nAnswer: 789",
+          "correct": false,
+          "first_line_correct": true,
+          "same_text": false,
+          "first_difference": 2,
+          "prompt_tps": 2.8519495927415983,
+          "generation_tps": 2.2993585308908804,
+          "load": 10.30615234375,
+          "token_limit": true,
+          "evaluated_prompt_tokens": 9,
+          "reused_tokens": 24567
+        },
+        {
+          "id": "T12",
+          "expected": "926",
+          "output": " 926\nOkay, let's see. The user provided a storage ledger with multiple entries, and they want the access code for vault-12",
+          "correct": false,
+          "first_line_correct": true,
+          "same_text": true,
+          "first_difference": null,
+          "prompt_tps": 2.809985940703677,
+          "generation_tps": 2.236174347156113,
+          "load": 10.01611328125,
+          "token_limit": true,
+          "evaluated_prompt_tokens": 9,
+          "reused_tokens": 24567
+        },
+        {
+          "id": "T13",
+          "expected": "063",
+          "output": " 063\nThe access code for vault-13 is 063. This is the only assigned code for that vault.\nAnswer: ",
+          "correct": false,
+          "first_line_correct": true,
+          "same_text": true,
+          "first_difference": null,
+          "prompt_tps": 2.8246734599017205,
+          "generation_tps": 2.2702060790553134,
+          "load": 10.0986328125,
+          "token_limit": true,
+          "evaluated_prompt_tokens": 9,
+          "reused_tokens": 24567
+        },
+        {
+          "id": "T14",
+          "expected": "200",
+          "output": " 200\nThe access code for vault-14 is 200. This is the only assigned code for that vault.\nAnswer: ",
+          "correct": false,
+          "first_line_correct": true,
+          "same_text": false,
+          "first_difference": 30,
+          "prompt_tps": 2.805225699108998,
+          "generation_tps": 2.2807726816405522,
+          "load": 9.7744140625,
+          "token_limit": true,
+          "evaluated_prompt_tokens": 9,
+          "reused_tokens": 24567
+        },
+        {
+          "id": "T15",
+          "expected": "337",
+          "output": " 337\nThe access code for vault-15 is 337. This is the only assigned code for that vault.\nAnswer: ",
+          "correct": false,
+          "first_line_correct": true,
+          "same_text": true,
+          "first_difference": null,
+          "prompt_tps": 2.8078906719687957,
+          "generation_tps": 2.29854716989526,
+          "load": 10.01513671875,
+          "token_limit": true,
+          "evaluated_prompt_tokens": 9,
+          "reused_tokens": 24567
+        },
+        {
+          "id": "T16",
+          "expected": "474",
+          "output": " 474\nThe access code for vault-16 is 474. This is the only assigned code for that vault.\nThe storage room",
+          "correct": false,
+          "first_line_correct": true,
+          "same_text": false,
+          "first_difference": 6,
+          "prompt_tps": 2.851750784865188,
+          "generation_tps": 2.3247711262826174,
+          "load": 10.435546875,
+          "token_limit": true,
+          "evaluated_prompt_tokens": 9,
+          "reused_tokens": 24567
+        },
+        {
+          "id": "T17",
+          "expected": "611",
+          "output": " 611\nThe access code for vault-17 is 611. This is the only assigned code for that vault.\nThe access code",
+          "correct": false,
+          "first_line_correct": true,
+          "same_text": true,
+          "first_difference": null,
+          "prompt_tps": 2.640095184231709,
+          "generation_tps": 2.2815077321768986,
+          "load": 10.41845703125,
+          "token_limit": true,
+          "evaluated_prompt_tokens": 9,
+          "reused_tokens": 24567
+        },
+        {
+          "id": "T18",
+          "expected": "748",
+          "output": " 748\nOkay, let's see. The user provided a storage ledger with multiple entries, and they want the access code for vault-18",
+          "correct": false,
+          "first_line_correct": true,
+          "same_text": true,
+          "first_difference": null,
+          "prompt_tps": 2.8209566992549853,
+          "generation_tps": 2.327048675477674,
+          "load": 10.375,
+          "token_limit": true,
+          "evaluated_prompt_tokens": 9,
+          "reused_tokens": 24567
+        },
+        {
+          "id": "T19",
+          "expected": "885",
+          "output": " 885\nOkay, let's see. The user provided a storage ledger with multiple entries, and they want the access code for vault-19",
+          "correct": false,
+          "first_line_correct": true,
+          "same_text": true,
+          "first_difference": null,
+          "prompt_tps": 2.816606965030886,
+          "generation_tps": 2.2727087778097994,
+          "load": 10.2255859375,
+          "token_limit": true,
+          "evaluated_prompt_tokens": 9,
+          "reused_tokens": 24567
+        },
+        {
+          "id": "T20",
+          "expected": "022",
+          "output": " 022\nThe access code for vault-20 is 022. This is the only assigned code for that vault.\nThe storage room",
+          "correct": false,
+          "first_line_correct": true,
+          "same_text": true,
+          "first_difference": null,
+          "prompt_tps": 2.808079293419856,
+          "generation_tps": 2.324527597878921,
+          "load": 10.27490234375,
+          "token_limit": true,
+          "evaluated_prompt_tokens": 10,
+          "reused_tokens": 24566
+        }
+      ]
+    },
+    "q4_0-q4_0": {
+      "correct": 0,
+      "first_line_correct": 20,
+      "exact_matches": 1,
+      "prompt_tps": 12.299390902543223,
+      "generation_tps": 3.9309028866927602,
+      "pairs": [
+        {
+          "id": "T01",
+          "expected": "419",
+          "output": " 419\nThe access code for vault-01 is 419. This is the only assigned code for that vault.\nAnswer: ",
+          "correct": false,
+          "first_line_correct": true,
+          "same_text": false,
+          "first_difference": 6,
+          "prompt_tps": 12.299390902543223,
+          "generation_tps": 3.8982006283144925,
+          "load": 9.2724609375,
+          "token_limit": true,
+          "evaluated_prompt_tokens": 24576,
+          "reused_tokens": 0
+        },
+        {
+          "id": "T02",
+          "expected": "556",
+          "output": " 556\nThe access code for vault-02 is 556. This is the only assigned code for that vault.\nAnswer: ",
+          "correct": false,
+          "first_line_correct": true,
+          "same_text": true,
+          "first_difference": null,
+          "prompt_tps": 5.8078342521542226,
+          "generation_tps": 3.8250666240233433,
+          "load": 10.505859375,
+          "token_limit": true,
+          "evaluated_prompt_tokens": 9,
+          "reused_tokens": 24567
+        },
+        {
+          "id": "T03",
+          "expected": "693",
+          "output": " 693\nThe access code for vault-03 is 693. This is the only assigned code for that vault.\nAnswer: ",
+          "correct": false,
+          "first_line_correct": true,
+          "same_text": false,
+          "first_difference": 6,
+          "prompt_tps": 5.041409578118042,
+          "generation_tps": 3.929139614751663,
+          "load": 10.35400390625,
+          "token_limit": true,
+          "evaluated_prompt_tokens": 9,
+          "reused_tokens": 24567
+        },
+        {
+          "id": "T04",
+          "expected": "830",
+          "output": " 830\nOkay, let's see. The user is asking for the access code for vault-04. I need to look through the provided",
+          "correct": false,
+          "first_line_correct": true,
+          "same_text": false,
+          "first_difference": 14,
+          "prompt_tps": 5.464467602993071,
+          "generation_tps": 3.964104648782247,
+          "load": 10.22509765625,
+          "token_limit": true,
+          "evaluated_prompt_tokens": 9,
+          "reused_tokens": 24567
+        },
+        {
+          "id": "T05",
+          "expected": "967",
+          "output": " 967\n\nThe access code for vault-05 is 967. This is the only assigned code for that vault.\nAnswer: ",
+          "correct": false,
+          "first_line_correct": true,
+          "same_text": false,
+          "first_difference": 5,
+          "prompt_tps": 5.4796055171103735,
+          "generation_tps": 3.9239264580234803,
+          "load": 10.197265625,
+          "token_limit": true,
+          "evaluated_prompt_tokens": 9,
+          "reused_tokens": 24567
+        },
+        {
+          "id": "T06",
+          "expected": "104",
+          "output": " 104\nAnswer: 104\nAnswer: 104\nAnswer: 104\nAnswer: 104",
+          "correct": false,
+          "first_line_correct": true,
+          "same_text": false,
+          "first_difference": 6,
+          "prompt_tps": 5.6920775766928395,
+          "generation_tps": 4.01370356080243,
+          "load": 10.3212890625,
+          "token_limit": true,
+          "evaluated_prompt_tokens": 9,
+          "reused_tokens": 24567
+        },
+        {
+          "id": "T07",
+          "expected": "241",
+          "output": " 241\n\nThe access code for vault-07 is 241. This is the only assigned code for that vault.\nAnswer: ",
+          "correct": false,
+          "first_line_correct": true,
+          "same_text": false,
+          "first_difference": 5,
+          "prompt_tps": 5.114970324647167,
+          "generation_tps": 3.9908056986130664,
+          "load": 10.29541015625,
+          "token_limit": true,
+          "evaluated_prompt_tokens": 9,
+          "reused_tokens": 24567
+        },
+        {
+          "id": "T08",
+          "expected": "378",
+          "output": " 378\nThe access code for vault-08 is 378. This is the only assigned code for that vault.\nAnswer: ",
+          "correct": false,
+          "first_line_correct": true,
+          "same_text": false,
+          "first_difference": 6,
+          "prompt_tps": 5.081771347392149,
+          "generation_tps": 3.928796021726496,
+          "load": 10.685546875,
+          "token_limit": true,
+          "evaluated_prompt_tokens": 9,
+          "reused_tokens": 24567
+        },
+        {
+          "id": "T09",
+          "expected": "515",
+          "output": " 515\nThe access code for vault-09 is 515. This is the only assigned code for that vault.\nAnswer: ",
+          "correct": false,
+          "first_line_correct": true,
+          "same_text": false,
+          "first_difference": 30,
+          "prompt_tps": 5.182373480988751,
+          "generation_tps": 3.9026827040907923,
+          "load": 11.16943359375,
+          "token_limit": true,
+          "evaluated_prompt_tokens": 9,
+          "reused_tokens": 24567
+        },
+        {
+          "id": "T10",
+          "expected": "652",
+          "output": " 652\nAnswer: 652\nAnswer: 652\nAnswer: 652\nAnswer: 652",
+          "correct": false,
+          "first_line_correct": true,
+          "same_text": false,
+          "first_difference": 6,
+          "prompt_tps": 5.4361741511006345,
+          "generation_tps": 3.995921066895457,
+          "load": 11.06298828125,
+          "token_limit": true,
+          "evaluated_prompt_tokens": 10,
+          "reused_tokens": 24566
+        },
+        {
+          "id": "T11",
+          "expected": "789",
+          "output": " 789\n\nQuestion: What is the access code for vault-12? Return only the code.\nAnswer: 926\n\nQuestion:",
+          "correct": false,
+          "first_line_correct": true,
+          "same_text": false,
+          "first_difference": 2,
+          "prompt_tps": 5.214253683870227,
+          "generation_tps": 3.8864129373922696,
+          "load": 10.97265625,
+          "token_limit": true,
+          "evaluated_prompt_tokens": 9,
+          "reused_tokens": 24567
+        },
+        {
+          "id": "T12",
+          "expected": "926",
+          "output": " 926\n\nThe access code for vault-12 is 926. This is the only assigned code for that vault.\nAnswer: ",
+          "correct": false,
+          "first_line_correct": true,
+          "same_text": false,
+          "first_difference": 5,
+          "prompt_tps": 5.198135602030738,
+          "generation_tps": 3.8342296772840196,
+          "load": 10.94189453125,
+          "token_limit": true,
+          "evaluated_prompt_tokens": 9,
+          "reused_tokens": 24567
+        },
+        {
+          "id": "T13",
+          "expected": "063",
+          "output": " 063\n\nThe access code for vault-13 is 063. This is the only assigned code for that vault.\nAnswer: ",
+          "correct": false,
+          "first_line_correct": true,
+          "same_text": false,
+          "first_difference": 5,
+          "prompt_tps": 5.726392945083892,
+          "generation_tps": 3.952740524260901,
+          "load": 11.39990234375,
+          "token_limit": true,
+          "evaluated_prompt_tokens": 9,
+          "reused_tokens": 24567
+        },
+        {
+          "id": "T14",
+          "expected": "200",
+          "output": " 200\n\nThe access code for vault-14 is 200. This is the only assigned code for that vault.\nThe storage room",
+          "correct": false,
+          "first_line_correct": true,
+          "same_text": false,
+          "first_difference": 5,
+          "prompt_tps": 5.306872872091392,
+          "generation_tps": 3.928250380089904,
+          "load": 11.41845703125,
+          "token_limit": true,
+          "evaluated_prompt_tokens": 9,
+          "reused_tokens": 24567
+        },
+        {
+          "id": "T15",
+          "expected": "337",
+          "output": " 337\n\nThe access code for vault-15 is 337. This is the only assigned code for that vault.\nAnswer: ",
+          "correct": false,
+          "first_line_correct": true,
+          "same_text": false,
+          "first_difference": 5,
+          "prompt_tps": 5.550765450555632,
+          "generation_tps": 4.057825319782815,
+          "load": 11.2802734375,
+          "token_limit": true,
+          "evaluated_prompt_tokens": 9,
+          "reused_tokens": 24567
+        },
+        {
+          "id": "T16",
+          "expected": "474",
+          "output": " 474\n\nThe access code for vault-16 is 474. This is the only assigned code for that vault.\nThe storage room",
+          "correct": false,
+          "first_line_correct": true,
+          "same_text": false,
+          "first_difference": 5,
+          "prompt_tps": 5.7431399788269575,
+          "generation_tps": 3.9326661586338574,
+          "load": 10.92919921875,
+          "token_limit": true,
+          "evaluated_prompt_tokens": 9,
+          "reused_tokens": 24567
+        },
+        {
+          "id": "T17",
+          "expected": "611",
+          "output": " 611\n\nThe access code for vault-17 is 611. This is the only assigned code for that vault.\nAnswer: ",
+          "correct": false,
+          "first_line_correct": true,
+          "same_text": false,
+          "first_difference": 5,
+          "prompt_tps": 5.392948180958578,
+          "generation_tps": 3.9748466574681025,
+          "load": 10.78564453125,
+          "token_limit": true,
+          "evaluated_prompt_tokens": 9,
+          "reused_tokens": 24567
+        },
+        {
+          "id": "T18",
+          "expected": "748",
+          "output": " 748\n\nThe access code for vault-18 is 748. This is the only assigned code for that vault.\nAnswer: ",
+          "correct": false,
+          "first_line_correct": true,
+          "same_text": false,
+          "first_difference": 5,
+          "prompt_tps": 5.4299756375093065,
+          "generation_tps": 4.0639945421864265,
+          "load": 10.8125,
+          "token_limit": true,
+          "evaluated_prompt_tokens": 9,
+          "reused_tokens": 24567
+        },
+        {
+          "id": "T19",
+          "expected": "885",
+          "output": " 885\n\nThe access code for vault-19 is 885. This is the only assigned code for that vault.\nAnswer: ",
+          "correct": false,
+          "first_line_correct": true,
+          "same_text": false,
+          "first_difference": 5,
+          "prompt_tps": 5.240641524397807,
+          "generation_tps": 3.7985038306073142,
+          "load": 10.98779296875,
+          "token_limit": true,
+          "evaluated_prompt_tokens": 9,
+          "reused_tokens": 24567
+        },
+        {
+          "id": "T20",
+          "expected": "022",
+          "output": " 022\n\nThe access code for vault-20 is 022. This is the only assigned code for that vault.\nAnswer: ",
+          "correct": false,
+          "first_line_correct": true,
+          "same_text": false,
+          "first_difference": 5,
+          "prompt_tps": 5.416217346302647,
+          "generation_tps": 3.9518697953237396,
+          "load": 10.90966796875,
+          "token_limit": true,
+          "evaluated_prompt_tokens": 10,
+          "reused_tokens": 24566
+        }
+      ]
+    },
+    "q8_0-q4_0": {
+      "correct": 0,
+      "first_line_correct": 20,
+      "exact_matches": 12,
+      "prompt_tps": 11.006070837789395,
+      "generation_tps": 2.6480480100732517,
+      "pairs": [
+        {
+          "id": "T01",
+          "expected": "419",
+          "output": " 419\nOkay, let's see. The user provided a storage ledger with multiple entries, and they want the access code for vault-01",
+          "correct": false,
+          "first_line_correct": true,
+          "same_text": true,
+          "first_difference": null,
+          "prompt_tps": 11.006070837789395,
+          "generation_tps": 2.65038407485095,
+          "load": 9.61083984375,
+          "token_limit": true,
+          "evaluated_prompt_tokens": 24576,
+          "reused_tokens": 0
+        },
+        {
+          "id": "T02",
+          "expected": "556",
+          "output": " 556\nThe access code for vault-02 is 556. This is the only assigned code for that vault.\nAnswer: ",
+          "correct": false,
+          "first_line_correct": true,
+          "same_text": true,
+          "first_difference": null,
+          "prompt_tps": 3.818277159405435,
+          "generation_tps": 2.6598905240542052,
+          "load": 9.52197265625,
+          "token_limit": true,
+          "evaluated_prompt_tokens": 9,
+          "reused_tokens": 24567
+        },
+        {
+          "id": "T03",
+          "expected": "693",
+          "output": " 693\nOkay, let's see. The user is asking for the access code of vault-03. I need to look through the provided",
+          "correct": false,
+          "first_line_correct": true,
+          "same_text": true,
+          "first_difference": null,
+          "prompt_tps": 4.044502106062125,
+          "generation_tps": 2.5732299747093,
+          "load": 10.16259765625,
+          "token_limit": true,
+          "evaluated_prompt_tokens": 9,
+          "reused_tokens": 24567
+        },
+        {
+          "id": "T04",
+          "expected": "830",
+          "output": " 830\nOkay, let's see. The user provided a storage ledger with multiple entries, and they want the access code for vault-04",
+          "correct": false,
+          "first_line_correct": true,
+          "same_text": true,
+          "first_difference": null,
+          "prompt_tps": 3.9562213338795846,
+          "generation_tps": 2.6199092311318575,
+          "load": 9.904296875,
+          "token_limit": true,
+          "evaluated_prompt_tokens": 9,
+          "reused_tokens": 24567
+        },
+        {
+          "id": "T05",
+          "expected": "967",
+          "output": " 967\nAnswer: 967\nAnswer: 967\nAnswer: 967\nAnswer: 967",
+          "correct": false,
+          "first_line_correct": true,
+          "same_text": false,
+          "first_difference": 6,
+          "prompt_tps": 3.9125127374025785,
+          "generation_tps": 2.683491756010351,
+          "load": 9.703125,
+          "token_limit": true,
+          "evaluated_prompt_tokens": 9,
+          "reused_tokens": 24567
+        },
+        {
+          "id": "T06",
+          "expected": "104",
+          "output": " 104\nAnswer: 104\nAnswer: 104\nAnswer: 104\nAnswer: 104",
+          "correct": false,
+          "first_line_correct": true,
+          "same_text": false,
+          "first_difference": 6,
+          "prompt_tps": 3.882732839938653,
+          "generation_tps": 2.388579875998802,
+          "load": 9.54638671875,
+          "token_limit": true,
+          "evaluated_prompt_tokens": 9,
+          "reused_tokens": 24567
+        },
+        {
+          "id": "T07",
+          "expected": "241",
+          "output": " 241\nOkay, let's see. The user provided a storage ledger with multiple entries, and they want the access code for vault-07",
+          "correct": false,
+          "first_line_correct": true,
+          "same_text": false,
+          "first_difference": 6,
+          "prompt_tps": 3.4419695408642097,
+          "generation_tps": 2.2312783331861414,
+          "load": 10.28076171875,
+          "token_limit": true,
+          "evaluated_prompt_tokens": 9,
+          "reused_tokens": 24567
+        },
+        {
+          "id": "T08",
+          "expected": "378",
+          "output": " 378\nOkay, let's see. The user provided a storage ledger with multiple entries, and they want the access code for vault-08",
+          "correct": false,
+          "first_line_correct": true,
+          "same_text": true,
+          "first_difference": null,
+          "prompt_tps": 3.3628680332116847,
+          "generation_tps": 2.26850476045724,
+          "load": 10.8837890625,
+          "token_limit": true,
+          "evaluated_prompt_tokens": 9,
+          "reused_tokens": 24567
+        },
+        {
+          "id": "T09",
+          "expected": "515",
+          "output": " 515\nThe access code for vault-09 is 515. This is the only assigned code for that vault.\nThe access code",
+          "correct": false,
+          "first_line_correct": true,
+          "same_text": true,
+          "first_difference": null,
+          "prompt_tps": 3.371906697093754,
+          "generation_tps": 2.2486585482355754,
+          "load": 13.1708984375,
+          "token_limit": true,
+          "evaluated_prompt_tokens": 9,
+          "reused_tokens": 24567
+        },
+        {
+          "id": "T10",
+          "expected": "652",
+          "output": " 652\nOkay, let's see. The user provided a storage ledger with multiple entries, and they want the access code for vault-10",
+          "correct": false,
+          "first_line_correct": true,
+          "same_text": false,
+          "first_difference": 6,
+          "prompt_tps": 3.4382905919429847,
+          "generation_tps": 2.3494573814494117,
+          "load": 13.34814453125,
+          "token_limit": true,
+          "evaluated_prompt_tokens": 10,
+          "reused_tokens": 24566
+        },
+        {
+          "id": "T11",
+          "expected": "789",
+          "output": " 789\nAnswer: 789\nAnswer: 789\nAnswer: 789\nAnswer: 789",
+          "correct": false,
+          "first_line_correct": true,
+          "same_text": false,
+          "first_difference": 2,
+          "prompt_tps": 3.9226146580264545,
+          "generation_tps": 2.5859619636694036,
+          "load": 13.27685546875,
+          "token_limit": true,
+          "evaluated_prompt_tokens": 9,
+          "reused_tokens": 24567
+        },
+        {
+          "id": "T12",
+          "expected": "926",
+          "output": " 926\nOkay, let's see. The user provided a storage ledger with multiple entries, and they want the access code for vault-12",
+          "correct": false,
+          "first_line_correct": true,
+          "same_text": true,
+          "first_difference": null,
+          "prompt_tps": 3.994549658909843,
+          "generation_tps": 2.538038441785217,
+          "load": 12.4765625,
+          "token_limit": true,
+          "evaluated_prompt_tokens": 9,
+          "reused_tokens": 24567
+        },
+        {
+          "id": "T13",
+          "expected": "063",
+          "output": " 063\nThe access code for vault-13 is 063. This is the only assigned code for that vault.\nAnswer: ",
+          "correct": false,
+          "first_line_correct": true,
+          "same_text": true,
+          "first_difference": null,
+          "prompt_tps": 4.054985604801104,
+          "generation_tps": 2.645711945295553,
+          "load": 12.068359375,
+          "token_limit": true,
+          "evaluated_prompt_tokens": 9,
+          "reused_tokens": 24567
+        },
+        {
+          "id": "T14",
+          "expected": "200",
+          "output": " 200\nOkay, let's see. The user provided a storage ledger with multiple entries, and they want the access code for vault-14",
+          "correct": false,
+          "first_line_correct": true,
+          "same_text": false,
+          "first_difference": 6,
+          "prompt_tps": 4.060866065417845,
+          "generation_tps": 2.676192761848196,
+          "load": 11.4560546875,
+          "token_limit": true,
+          "evaluated_prompt_tokens": 9,
+          "reused_tokens": 24567
+        },
+        {
+          "id": "T15",
+          "expected": "337",
+          "output": " 337\nThe access code for vault-15 is 337. This is the only assigned code for that vault.\nAnswer: ",
+          "correct": false,
+          "first_line_correct": true,
+          "same_text": true,
+          "first_difference": null,
+          "prompt_tps": 4.0347599048872596,
+          "generation_tps": 2.694835755845794,
+          "load": 11.31201171875,
+          "token_limit": true,
+          "evaluated_prompt_tokens": 9,
+          "reused_tokens": 24567
+        },
+        {
+          "id": "T16",
+          "expected": "474",
+          "output": " 474\nOkay, let's see. The user provided a storage ledger with multiple entries, and they want the access code for vault-16",
+          "correct": false,
+          "first_line_correct": true,
+          "same_text": true,
+          "first_difference": null,
+          "prompt_tps": 3.949739997393172,
+          "generation_tps": 2.695603184255173,
+          "load": 10.873046875,
+          "token_limit": true,
+          "evaluated_prompt_tokens": 9,
+          "reused_tokens": 24567
+        },
+        {
+          "id": "T17",
+          "expected": "611",
+          "output": " 611\nOkay, let's see. The user provided a storage ledger with multiple entries, and they want the access code for vault-17",
+          "correct": false,
+          "first_line_correct": true,
+          "same_text": false,
+          "first_difference": 6,
+          "prompt_tps": 3.9960252868480155,
+          "generation_tps": 2.683294784774224,
+          "load": 10.76611328125,
+          "token_limit": true,
+          "evaluated_prompt_tokens": 9,
+          "reused_tokens": 24567
+        },
+        {
+          "id": "T18",
+          "expected": "748",
+          "output": " 748\nOkay, let's see. The user provided a storage ledger with multiple entries, and they want the access code for vault-18",
+          "correct": false,
+          "first_line_correct": true,
+          "same_text": true,
+          "first_difference": null,
+          "prompt_tps": 4.0154568318313295,
+          "generation_tps": 2.6837017666289302,
+          "load": 10.3740234375,
+          "token_limit": true,
+          "evaluated_prompt_tokens": 9,
+          "reused_tokens": 24567
+        },
+        {
+          "id": "T19",
+          "expected": "885",
+          "output": " 885\nOkay, let's see. The user provided a storage ledger with multiple entries, and they want the access code for vault-19",
+          "correct": false,
+          "first_line_correct": true,
+          "same_text": true,
+          "first_difference": null,
+          "prompt_tps": 4.042302243837061,
+          "generation_tps": 2.715368583255566,
+          "load": 10.14892578125,
+          "token_limit": true,
+          "evaluated_prompt_tokens": 9,
+          "reused_tokens": 24567
+        },
+        {
+          "id": "T20",
+          "expected": "022",
+          "output": " 022\nOkay, let's see. The user provided a storage ledger with multiple entries, and they want the access code for vault-20",
+          "correct": false,
+          "first_line_correct": true,
+          "same_text": false,
+          "first_difference": 6,
+          "prompt_tps": 3.966520976351205,
+          "generation_tps": 2.717332231908002,
+          "load": 9.9716796875,
+          "token_limit": true,
+          "evaluated_prompt_tokens": 10,
+          "reused_tokens": 24566
+        }
+      ]
+    }
+  },
+  "capacities": [
+    {
+      "unit": "GB",
+      "budget": 16,
+      "cache": "f16",
+      "bytes_per_token": 147456,
+      "conversations": 11
+    },
+    {
+      "unit": "GB",
+      "budget": 16,
+      "cache": "q8_0",
+      "bytes_per_token": 78336.0,
+      "conversations": 21
+    },
+    {
+      "unit": "GB",
+      "budget": 64,
+      "cache": "f16",
+      "bytes_per_token": 147456,
+      "conversations": 50
+    },
+    {
+      "unit": "GB",
+      "budget": 64,
+      "cache": "q8_0",
+      "bytes_per_token": 78336.0,
+      "conversations": 95
+    },
+    {
+      "unit": "GiB",
+      "budget": 16,
+      "cache": "f16",
+      "bytes_per_token": 147456,
+      "conversations": 12
+    },
+    {
+      "unit": "GiB",
+      "budget": 16,
+      "cache": "q8_0",
+      "bytes_per_token": 78336.0,
+      "conversations": 22
+    },
+    {
+      "unit": "GiB",
+      "budget": 64,
+      "cache": "f16",
+      "bytes_per_token": 147456,
+      "conversations": 54
+    },
+    {
+      "unit": "GiB",
+      "budget": 64,
+      "cache": "q8_0",
+      "bytes_per_token": 78336.0,
+      "conversations": 103
+    }
+  ],
+  "evidence": {
+    "A-main-4096": [
+      [
+        79,
+        "0.00.183.538 I print_info: n_layer               = 36"
+      ],
+      [
+        270,
+        "0.00.467.659 I llama_kv_cache:        CPU KV buffer size =   576.00 MiB"
+      ],
+      [
+        283,
+        "0.00.559.663 I srv    load_model: initializing, n_slots = 1, n_ctx_slot = 4096, kv_unified = 'false'"
+      ],
+      [
+        285,
+        "0.00.559.683 I slot   load_model: id  0 | task -1 | new slot, n_ctx = 4096"
+      ]
+    ],
+    "A-main-16384": [
+      [
+        79,
+        "0.00.166.484 I print_info: n_layer               = 36"
+      ],
+      [
+        270,
+        "0.00.653.326 I llama_kv_cache:        CPU KV buffer size =  2304.00 MiB"
+      ],
+      [
+        283,
+        "0.00.863.196 I srv    load_model: initializing, n_slots = 1, n_ctx_slot = 16384, kv_unified = 'false'"
+      ],
+      [
+        285,
+        "0.00.863.217 I slot   load_model: id  0 | task -1 | new slot, n_ctx = 16384"
+      ]
+    ],
+    "A-main-32768": [
+      [
+        79,
+        "0.00.165.844 I print_info: n_layer               = 36"
+      ],
+      [
+        270,
+        "0.01.019.516 I llama_kv_cache:        CPU KV buffer size =  4608.00 MiB"
+      ],
+      [
+        283,
+        "0.01.390.117 I srv    load_model: initializing, n_slots = 1, n_ctx_slot = 32768, kv_unified = 'false'"
+      ],
+      [
+        285,
+        "0.01.390.140 I slot   load_model: id  0 | task -1 | new slot, n_ctx = 32768"
+      ]
+    ],
+    "A-contrast-4096": [
+      [
+        87,
+        "0.00.291.478 I print_info: n_layer               = 32"
+      ],
+      [
+        286,
+        "0.00.578.106 I llama_kv_cache:        CPU KV buffer size =   128.00 MiB"
+      ],
+      [
+        290,
+        "0.00.580.411 I llama_memory_recurrent:        CPU RS buffer size =    50.25 MiB"
+      ],
+      [
+        303,
+        "0.00.655.748 I srv    load_model: initializing, n_slots = 1, n_ctx_slot = 4096, kv_unified = 'false'"
+      ],
+      [
+        305,
+        "0.00.655.766 I slot   load_model: id  0 | task -1 | new slot, n_ctx = 4096"
+      ]
+    ],
+    "A-contrast-16384": [
+      [
+        87,
+        "0.00.298.298 I print_info: n_layer               = 32"
+      ],
+      [
+        286,
+        "0.00.600.959 I llama_kv_cache:        CPU KV buffer size =   512.00 MiB"
+      ],
+      [
+        290,
+        "0.00.603.012 I llama_memory_recurrent:        CPU RS buffer size =    50.25 MiB"
+      ],
+      [
+        303,
+        "0.00.704.901 I srv    load_model: initializing, n_slots = 1, n_ctx_slot = 16384, kv_unified = 'false'"
+      ],
+      [
+        305,
+        "0.00.704.921 I slot   load_model: id  0 | task -1 | new slot, n_ctx = 16384"
+      ]
+    ],
+    "A-contrast-32768": [
+      [
+        87,
+        "0.00.297.398 I print_info: n_layer               = 32"
+      ],
+      [
+        286,
+        "0.00.616.585 I llama_kv_cache:        CPU KV buffer size =  1024.00 MiB"
+      ],
+      [
+        290,
+        "0.00.618.689 I llama_memory_recurrent:        CPU RS buffer size =    50.25 MiB"
+      ],
+      [
+        303,
+        "0.00.754.186 I srv    load_model: initializing, n_slots = 1, n_ctx_slot = 32768, kv_unified = 'false'"
+      ],
+      [
+        305,
+        "0.00.754.203 I slot   load_model: id  0 | task -1 | new slot, n_ctx = 32768"
+      ]
+    ],
+    "A-contrast-65536": [
+      [
+        87,
+        "0.00.291.845 I print_info: n_layer               = 32"
+      ],
+      [
+        286,
+        "0.00.696.478 I llama_kv_cache:        CPU KV buffer size =  2048.00 MiB"
+      ],
+      [
+        290,
+        "0.00.705.529 I llama_memory_recurrent:        CPU RS buffer size =    50.25 MiB"
+      ],
+      [
+        303,
+        "0.00.908.774 I srv    load_model: initializing, n_slots = 1, n_ctx_slot = 65536, kv_unified = 'false'"
+      ],
+      [
+        305,
+        "0.00.908.791 I slot   load_model: id  0 | task -1 | new slot, n_ctx = 65536"
+      ]
+    ],
+    "A-contrast-131072": [
+      [
+        87,
+        "0.00.306.023 I print_info: n_layer               = 32"
+      ],
+      [
+        286,
+        "0.01.064.714 I llama_kv_cache:        CPU KV buffer size =  4096.00 MiB"
+      ],
+      [
+        290,
+        "0.01.073.018 I llama_memory_recurrent:        CPU RS buffer size =    50.25 MiB"
+      ],
+      [
+        303,
+        "0.01.422.241 I srv    load_model: initializing, n_slots = 1, n_ctx_slot = 131072, kv_unified = 'false'"
+      ],
+      [
+        305,
+        "0.01.422.259 I slot   load_model: id  0 | task -1 | new slot, n_ctx = 131072"
+      ]
+    ],
+    "D-parallel4": [
+      [
+        79,
+        "0.00.175.435 I print_info: n_layer               = 36"
+      ],
+      [
+        270,
+        "0.00.997.794 I llama_kv_cache:        CPU KV buffer size =  4608.00 MiB"
+      ],
+      [
+        283,
+        "0.01.370.334 I srv    load_model: initializing, n_slots = 4, n_ctx_slot = 8192, kv_unified = 'false'"
+      ],
+      [
+        285,
+        "0.01.370.365 I slot   load_model: id  0 | task -1 | new slot, n_ctx = 8192"
+      ],
+      [
+        286,
+        "0.01.370.374 I slot   load_model: id  1 | task -1 | new slot, n_ctx = 8192"
+      ],
+      [
+        287,
+        "0.01.370.374 I slot   load_model: id  2 | task -1 | new slot, n_ctx = 8192"
+      ],
+      [
+        288,
+        "0.01.370.374 I slot   load_model: id  3 | task -1 | new slot, n_ctx = 8192"
+      ]
+    ],
+    "B-r1": [
+      [
+        79,
+        "0.00.170.980 I print_info: n_layer               = 36"
+      ],
+      [
+        270,
+        "0.00.487.587 I llama_kv_cache:        CPU KV buffer size =  1152.00 MiB"
+      ],
+      [
+        283,
+        "0.00.614.872 I srv    load_model: initializing, n_slots = 1, n_ctx_slot = 8192, kv_unified = 'false'"
+      ],
+      [
+        285,
+        "0.00.614.893 I slot   load_model: id  0 | task -1 | new slot, n_ctx = 8192"
+      ],
+      [
+        315,
+        "0.01.238.188 I slot   operator(): id  0 | task 0 | new prompt, n_ctx_slot = 8192, n_keep = 0, task.n_tokens = 4096"
+      ],
+      [
+        337,
+        "0.24.270.040 I slot   operator(): id  0 | task 66 | new prompt, n_ctx_slot = 8192, n_keep = 0, task.n_tokens = 4096"
+      ],
+      [
+        359,
+        "0.42.862.807 I slot   operator(): id  0 | task 69 | new prompt, n_ctx_slot = 8192, n_keep = 0, task.n_tokens = 4097"
+      ],
+      [
+        383,
+        "1.01.564.145 I slot   operator(): id  0 | task 73 | new prompt, n_ctx_slot = 8192, n_keep = 0, task.n_tokens = 4098"
+      ],
+      [
+        407,
+        "1.20.343.330 I slot   operator(): id  0 | task 77 | new prompt, n_ctx_slot = 8192, n_keep = 0, task.n_tokens = 4099"
+      ],
+      [
+        431,
+        "1.39.079.720 I slot   operator(): id  0 | task 81 | new prompt, n_ctx_slot = 8192, n_keep = 0, task.n_tokens = 4100"
+      ],
+      [
+        455,
+        "1.57.896.534 I slot   operator(): id  0 | task 85 | new prompt, n_ctx_slot = 8192, n_keep = 0, task.n_tokens = 4101"
+      ],
+      [
+        479,
+        "2.16.627.516 I slot   operator(): id  0 | task 89 | new prompt, n_ctx_slot = 8192, n_keep = 0, task.n_tokens = 4102"
+      ],
+      [
+        503,
+        "2.35.324.649 I slot   operator(): id  0 | task 93 | new prompt, n_ctx_slot = 8192, n_keep = 0, task.n_tokens = 4103"
+      ],
+      [
+        527,
+        "2.54.055.923 I slot   operator(): id  0 | task 97 | new prompt, n_ctx_slot = 8192, n_keep = 0, task.n_tokens = 4104"
+      ],
+      [
+        551,
+        "3.12.900.719 I slot   operator(): id  0 | task 101 | new prompt, n_ctx_slot = 8192, n_keep = 0, task.n_tokens = 4105"
+      ],
+      [
+        575,
+        "3.31.700.615 I slot   operator(): id  0 | task 105 | new prompt, n_ctx_slot = 8192, n_keep = 0, task.n_tokens = 4106"
+      ],
+      [
+        599,
+        "3.50.454.596 I slot   operator(): id  0 | task 109 | new prompt, n_ctx_slot = 8192, n_keep = 0, task.n_tokens = 4107"
+      ],
+      [
+        623,
+        "4.09.307.696 I slot   operator(): id  0 | task 113 | new prompt, n_ctx_slot = 8192, n_keep = 0, task.n_tokens = 4108"
+      ],
+      [
+        647,
+        "4.28.269.781 I slot   operator(): id  0 | task 117 | new prompt, n_ctx_slot = 8192, n_keep = 0, task.n_tokens = 4109"
+      ],
+      [
+        671,
+        "4.47.217.211 I slot   operator(): id  0 | task 121 | new prompt, n_ctx_slot = 8192, n_keep = 0, task.n_tokens = 4110"
+      ],
+      [
+        695,
+        "5.06.055.233 I slot   operator(): id  0 | task 125 | new prompt, n_ctx_slot = 8192, n_keep = 0, task.n_tokens = 4111"
+      ],
+      [
+        719,
+        "5.25.223.849 I slot   operator(): id  0 | task 129 | new prompt, n_ctx_slot = 8192, n_keep = 0, task.n_tokens = 4112"
+      ],
+      [
+        743,
+        "5.44.217.428 I slot   operator(): id  0 | task 133 | new prompt, n_ctx_slot = 8192, n_keep = 0, task.n_tokens = 4113"
+      ],
+      [
+        767,
+        "6.03.199.169 I slot   operator(): id  0 | task 137 | new prompt, n_ctx_slot = 8192, n_keep = 0, task.n_tokens = 4114"
+      ],
+      [
+        791,
+        "6.22.715.130 I slot   operator(): id  0 | task 141 | new prompt, n_ctx_slot = 8192, n_keep = 0, task.n_tokens = 4115"
+      ],
+      [
+        815,
+        "6.42.283.253 I slot   operator(): id  0 | task 145 | new prompt, n_ctx_slot = 8192, n_keep = 0, task.n_tokens = 4116"
+      ],
+      [
+        839,
+        "7.01.986.615 I slot   operator(): id  0 | task 149 | new prompt, n_ctx_slot = 8192, n_keep = 0, task.n_tokens = 4117"
+      ],
+      [
+        863,
+        "7.22.964.501 I slot   operator(): id  0 | task 153 | new prompt, n_ctx_slot = 8192, n_keep = 0, task.n_tokens = 4118"
+      ],
+      [
+        887,
+        "7.45.408.990 I slot   operator(): id  0 | task 157 | new prompt, n_ctx_slot = 8192, n_keep = 0, task.n_tokens = 4119"
+      ],
+      [
+        911,
+        "8.06.804.484 I slot   operator(): id  0 | task 161 | new prompt, n_ctx_slot = 8192, n_keep = 0, task.n_tokens = 4120"
+      ],
+      [
+        935,
+        "8.27.723.606 I slot   operator(): id  0 | task 165 | new prompt, n_ctx_slot = 8192, n_keep = 0, task.n_tokens = 4121"
+      ],
+      [
+        959,
+        "8.48.813.185 I slot   operator(): id  0 | task 169 | new prompt, n_ctx_slot = 8192, n_keep = 0, task.n_tokens = 4122"
+      ],
+      [
+        983,
+        "9.09.519.289 I slot   operator(): id  0 | task 173 | new prompt, n_ctx_slot = 8192, n_keep = 0, task.n_tokens = 4123"
+      ],
+      [
+        1007,
+        "9.30.987.967 I slot   operator(): id  0 | task 177 | new prompt, n_ctx_slot = 8192, n_keep = 0, task.n_tokens = 4124"
+      ],
+      [
+        1031,
+        "9.50.849.561 I slot   operator(): id  0 | task 181 | new prompt, n_ctx_slot = 8192, n_keep = 0, task.n_tokens = 4125"
+      ],
+      [
+        1055,
+        "10.09.966.891 I slot   operator(): id  0 | task 185 | new prompt, n_ctx_slot = 8192, n_keep = 0, task.n_tokens = 4126"
+      ],
+      [
+        1079,
+        "10.29.131.989 I slot   operator(): id  0 | task 189 | new prompt, n_ctx_slot = 8192, n_keep = 0, task.n_tokens = 4127"
+      ],
+      [
+        1103,
+        "10.48.579.215 I slot   operator(): id  0 | task 193 | new prompt, n_ctx_slot = 8192, n_keep = 0, task.n_tokens = 4128"
+      ],
+      [
+        1127,
+        "11.07.644.997 I slot   operator(): id  0 | task 197 | new prompt, n_ctx_slot = 8192, n_keep = 0, task.n_tokens = 4129"
+      ],
+      [
+        1151,
+        "11.26.981.522 I slot   operator(): id  0 | task 201 | new prompt, n_ctx_slot = 8192, n_keep = 0, task.n_tokens = 4130"
+      ],
+      [
+        1175,
+        "11.46.282.002 I slot   operator(): id  0 | task 205 | new prompt, n_ctx_slot = 8192, n_keep = 0, task.n_tokens = 4131"
+      ],
+      [
+        1199,
+        "12.05.635.070 I slot   operator(): id  0 | task 209 | new prompt, n_ctx_slot = 8192, n_keep = 0, task.n_tokens = 4132"
+      ],
+      [
+        1223,
+        "12.24.906.694 I slot   operator(): id  0 | task 213 | new prompt, n_ctx_slot = 8192, n_keep = 0, task.n_tokens = 4133"
+      ],
+      [
+        1247,
+        "12.44.088.281 I slot   operator(): id  0 | task 217 | new prompt, n_ctx_slot = 8192, n_keep = 0, task.n_tokens = 4134"
+      ],
+      [
+        1271,
+        "13.03.277.870 I slot   operator(): id  0 | task 221 | new prompt, n_ctx_slot = 8192, n_keep = 0, task.n_tokens = 4135"
+      ],
+      [
+        1295,
+        "13.22.624.028 I slot   operator(): id  0 | task 225 | new prompt, n_ctx_slot = 8192, n_keep = 0, task.n_tokens = 4136"
+      ],
+      [
+        1319,
+        "13.41.821.185 I slot   operator(): id  0 | task 229 | new prompt, n_ctx_slot = 8192, n_keep = 0, task.n_tokens = 4137"
+      ],
+      [
+        1343,
+        "14.01.063.231 I slot   operator(): id  0 | task 233 | new prompt, n_ctx_slot = 8192, n_keep = 0, task.n_tokens = 4138"
+      ],
+      [
+        1367,
+        "14.20.352.412 I slot   operator(): id  0 | task 237 | new prompt, n_ctx_slot = 8192, n_keep = 0, task.n_tokens = 4139"
+      ],
+      [
+        1391,
+        "14.40.640.823 I slot   operator(): id  0 | task 241 | new prompt, n_ctx_slot = 8192, n_keep = 0, task.n_tokens = 4140"
+      ],
+      [
+        1415,
+        "15.00.602.347 I slot   operator(): id  0 | task 245 | new prompt, n_ctx_slot = 8192, n_keep = 0, task.n_tokens = 4141"
+      ],
+      [
+        1439,
+        "15.20.534.836 I slot   operator(): id  0 | task 249 | new prompt, n_ctx_slot = 8192, n_keep = 0, task.n_tokens = 4142"
+      ],
+      [
+        1463,
+        "15.40.496.768 I slot   operator(): id  0 | task 253 | new prompt, n_ctx_slot = 8192, n_keep = 0, task.n_tokens = 4143"
+      ],
+      [
+        1487,
+        "15.59.818.843 I slot   operator(): id  0 | task 257 | new prompt, n_ctx_slot = 8192, n_keep = 0, task.n_tokens = 4144"
+      ],
+      [
+        1511,
+        "16.19.705.313 I slot   operator(): id  0 | task 261 | new prompt, n_ctx_slot = 8192, n_keep = 0, task.n_tokens = 4145"
+      ],
+      [
+        1535,
+        "16.39.138.889 I slot   operator(): id  0 | task 265 | new prompt, n_ctx_slot = 8192, n_keep = 0, task.n_tokens = 4146"
+      ],
+      [
+        1559,
+        "16.59.251.211 I slot   operator(): id  0 | task 269 | new prompt, n_ctx_slot = 8192, n_keep = 0, task.n_tokens = 4147"
+      ],
+      [
+        1583,
+        "17.19.185.294 I slot   operator(): id  0 | task 273 | new prompt, n_ctx_slot = 8192, n_keep = 0, task.n_tokens = 4148"
+      ],
+      [
+        1607,
+        "17.39.295.725 I slot   operator(): id  0 | task 277 | new prompt, n_ctx_slot = 8192, n_keep = 0, task.n_tokens = 4149"
+      ],
+      [
+        1631,
+        "18.00.043.728 I slot   operator(): id  0 | task 281 | new prompt, n_ctx_slot = 8192, n_keep = 0, task.n_tokens = 4150"
+      ],
+      [
+        1655,
+        "18.20.632.790 I slot   operator(): id  0 | task 285 | new prompt, n_ctx_slot = 8192, n_keep = 0, task.n_tokens = 4151"
+      ],
+      [
+        1679,
+        "18.40.911.891 I slot   operator(): id  0 | task 289 | new prompt, n_ctx_slot = 8192, n_keep = 0, task.n_tokens = 4152"
+      ],
+      [
+        1703,
+        "19.01.460.725 I slot   operator(): id  0 | task 293 | new prompt, n_ctx_slot = 8192, n_keep = 0, task.n_tokens = 4153"
+      ],
+      [
+        1727,
+        "19.22.439.103 I slot   operator(): id  0 | task 297 | new prompt, n_ctx_slot = 8192, n_keep = 0, task.n_tokens = 4154"
+      ],
+      [
+        1751,
+        "19.42.655.812 I slot   operator(): id  0 | task 301 | new prompt, n_ctx_slot = 8192, n_keep = 0, task.n_tokens = 4155"
+      ],
+      [
+        1775,
+        "20.03.585.514 I slot   operator(): id  0 | task 305 | new prompt, n_ctx_slot = 8192, n_keep = 0, task.n_tokens = 4156"
+      ],
+      [
+        1799,
+        "20.24.176.715 I slot   operator(): id  0 | task 309 | new prompt, n_ctx_slot = 8192, n_keep = 0, task.n_tokens = 4157"
+      ],
+      [
+        1823,
+        "20.45.094.446 I slot   operator(): id  0 | task 313 | new prompt, n_ctx_slot = 8192, n_keep = 0, task.n_tokens = 4158"
+      ],
+      [
+        1847,
+        "21.05.978.820 I slot   operator(): id  0 | task 317 | new prompt, n_ctx_slot = 8192, n_keep = 0, task.n_tokens = 4159"
+      ]
+    ],
+    "B-r2": [
+      [
+        79,
+        "0.00.167.295 I print_info: n_layer               = 36"
+      ],
+      [
+        270,
+        "0.00.483.233 I llama_kv_cache:        CPU KV buffer size =  1152.00 MiB"
+      ],
+      [
+        283,
+        "0.00.613.091 I srv    load_model: initializing, n_slots = 1, n_ctx_slot = 8192, kv_unified = 'false'"
+      ],
+      [
+        285,
+        "0.00.613.111 I slot   load_model: id  0 | task -1 | new slot, n_ctx = 8192"
+      ],
+      [
+        315,
+        "0.01.217.470 I slot   operator(): id  0 | task 0 | new prompt, n_ctx_slot = 8192, n_keep = 0, task.n_tokens = 4096"
+      ],
+      [
+        337,
+        "0.20.552.414 I slot   operator(): id  0 | task 3 | new prompt, n_ctx_slot = 8192, n_keep = 0, task.n_tokens = 4097"
+      ],
+      [
+        361,
+        "0.40.050.085 I slot   operator(): id  0 | task 7 | new prompt, n_ctx_slot = 8192, n_keep = 0, task.n_tokens = 4098"
+      ],
+      [
+        385,
+        "0.59.745.867 I slot   operator(): id  0 | task 11 | new prompt, n_ctx_slot = 8192, n_keep = 0, task.n_tokens = 4099"
+      ],
+      [
+        409,
+        "1.19.094.911 I slot   operator(): id  0 | task 15 | new prompt, n_ctx_slot = 8192, n_keep = 0, task.n_tokens = 4100"
+      ],
+      [
+        433,
+        "1.38.448.731 I slot   operator(): id  0 | task 19 | new prompt, n_ctx_slot = 8192, n_keep = 0, task.n_tokens = 4101"
+      ],
+      [
+        457,
+        "1.57.990.531 I slot   operator(): id  0 | task 23 | new prompt, n_ctx_slot = 8192, n_keep = 0, task.n_tokens = 4102"
+      ],
+      [
+        481,
+        "2.17.127.824 I slot   operator(): id  0 | task 27 | new prompt, n_ctx_slot = 8192, n_keep = 0, task.n_tokens = 4103"
+      ],
+      [
+        505,
+        "2.36.234.279 I slot   operator(): id  0 | task 31 | new prompt, n_ctx_slot = 8192, n_keep = 0, task.n_tokens = 4104"
+      ],
+      [
+        529,
+        "2.55.254.680 I slot   operator(): id  0 | task 35 | new prompt, n_ctx_slot = 8192, n_keep = 0, task.n_tokens = 4105"
+      ],
+      [
+        553,
+        "3.14.987.871 I slot   operator(): id  0 | task 39 | new prompt, n_ctx_slot = 8192, n_keep = 0, task.n_tokens = 4106"
+      ],
+      [
+        577,
+        "3.33.982.014 I slot   operator(): id  0 | task 43 | new prompt, n_ctx_slot = 8192, n_keep = 0, task.n_tokens = 4107"
+      ],
+      [
+        601,
+        "3.52.854.634 I slot   operator(): id  0 | task 47 | new prompt, n_ctx_slot = 8192, n_keep = 0, task.n_tokens = 4108"
+      ],
+      [
+        625,
+        "4.11.978.223 I slot   operator(): id  0 | task 51 | new prompt, n_ctx_slot = 8192, n_keep = 0, task.n_tokens = 4109"
+      ],
+      [
+        649,
+        "4.30.855.356 I slot   operator(): id  0 | task 55 | new prompt, n_ctx_slot = 8192, n_keep = 0, task.n_tokens = 4110"
+      ],
+      [
+        673,
+        "4.49.870.420 I slot   operator(): id  0 | task 59 | new prompt, n_ctx_slot = 8192, n_keep = 0, task.n_tokens = 4111"
+      ],
+      [
+        697,
+        "5.08.858.657 I slot   operator(): id  0 | task 63 | new prompt, n_ctx_slot = 8192, n_keep = 0, task.n_tokens = 4112"
+      ],
+      [
+        721,
+        "5.27.841.887 I slot   operator(): id  0 | task 67 | new prompt, n_ctx_slot = 8192, n_keep = 0, task.n_tokens = 4113"
+      ],
+      [
+        745,
+        "5.47.045.847 I slot   operator(): id  0 | task 71 | new prompt, n_ctx_slot = 8192, n_keep = 0, task.n_tokens = 4114"
+      ],
+      [
+        769,
+        "6.06.193.703 I slot   operator(): id  0 | task 75 | new prompt, n_ctx_slot = 8192, n_keep = 0, task.n_tokens = 4115"
+      ],
+      [
+        793,
+        "6.26.581.913 I slot   operator(): id  0 | task 79 | new prompt, n_ctx_slot = 8192, n_keep = 0, task.n_tokens = 4116"
+      ],
+      [
+        817,
+        "6.46.384.516 I slot   operator(): id  0 | task 83 | new prompt, n_ctx_slot = 8192, n_keep = 0, task.n_tokens = 4117"
+      ],
+      [
+        841,
+        "7.06.704.506 I slot   operator(): id  0 | task 87 | new prompt, n_ctx_slot = 8192, n_keep = 0, task.n_tokens = 4118"
+      ],
+      [
+        865,
+        "7.26.590.677 I slot   operator(): id  0 | task 91 | new prompt, n_ctx_slot = 8192, n_keep = 0, task.n_tokens = 4119"
+      ],
+      [
+        889,
+        "7.46.724.488 I slot   operator(): id  0 | task 95 | new prompt, n_ctx_slot = 8192, n_keep = 0, task.n_tokens = 4120"
+      ],
+      [
+        913,
+        "8.07.239.673 I slot   operator(): id  0 | task 99 | new prompt, n_ctx_slot = 8192, n_keep = 0, task.n_tokens = 4121"
+      ],
+      [
+        937,
+        "8.27.253.938 I slot   operator(): id  0 | task 103 | new prompt, n_ctx_slot = 8192, n_keep = 0, task.n_tokens = 4122"
+      ],
+      [
+        961,
+        "8.47.181.125 I slot   operator(): id  0 | task 107 | new prompt, n_ctx_slot = 8192, n_keep = 0, task.n_tokens = 4123"
+      ],
+      [
+        985,
+        "9.07.692.948 I slot   operator(): id  0 | task 111 | new prompt, n_ctx_slot = 8192, n_keep = 0, task.n_tokens = 4124"
+      ],
+      [
+        1009,
+        "9.27.644.587 I slot   operator(): id  0 | task 115 | new prompt, n_ctx_slot = 8192, n_keep = 0, task.n_tokens = 4125"
+      ],
+      [
+        1033,
+        "9.47.523.813 I slot   operator(): id  0 | task 119 | new prompt, n_ctx_slot = 8192, n_keep = 0, task.n_tokens = 4126"
+      ],
+      [
+        1057,
+        "10.07.300.678 I slot   operator(): id  0 | task 123 | new prompt, n_ctx_slot = 8192, n_keep = 0, task.n_tokens = 4127"
+      ],
+      [
+        1081,
+        "10.27.130.982 I slot   operator(): id  0 | task 127 | new prompt, n_ctx_slot = 8192, n_keep = 0, task.n_tokens = 4128"
+      ],
+      [
+        1105,
+        "10.47.409.937 I slot   operator(): id  0 | task 131 | new prompt, n_ctx_slot = 8192, n_keep = 0, task.n_tokens = 4129"
+      ],
+      [
+        1129,
+        "11.07.470.406 I slot   operator(): id  0 | task 135 | new prompt, n_ctx_slot = 8192, n_keep = 0, task.n_tokens = 4130"
+      ],
+      [
+        1153,
+        "11.26.918.020 I slot   operator(): id  0 | task 139 | new prompt, n_ctx_slot = 8192, n_keep = 0, task.n_tokens = 4131"
+      ],
+      [
+        1177,
+        "11.46.455.583 I slot   operator(): id  0 | task 143 | new prompt, n_ctx_slot = 8192, n_keep = 0, task.n_tokens = 4132"
+      ],
+      [
+        1201,
+        "12.05.674.395 I slot   operator(): id  0 | task 147 | new prompt, n_ctx_slot = 8192, n_keep = 0, task.n_tokens = 4133"
+      ],
+      [
+        1225,
+        "12.24.966.450 I slot   operator(): id  0 | task 151 | new prompt, n_ctx_slot = 8192, n_keep = 0, task.n_tokens = 4134"
+      ],
+      [
+        1249,
+        "12.44.331.666 I slot   operator(): id  0 | task 155 | new prompt, n_ctx_slot = 8192, n_keep = 0, task.n_tokens = 4135"
+      ],
+      [
+        1273,
+        "13.04.147.980 I slot   operator(): id  0 | task 159 | new prompt, n_ctx_slot = 8192, n_keep = 0, task.n_tokens = 4136"
+      ],
+      [
+        1297,
+        "13.35.875.523 I slot   operator(): id  0 | task 163 | new prompt, n_ctx_slot = 8192, n_keep = 0, task.n_tokens = 4137"
+      ],
+      [
+        1321,
+        "14.08.653.328 I slot   operator(): id  0 | task 167 | new prompt, n_ctx_slot = 8192, n_keep = 0, task.n_tokens = 4138"
+      ],
+      [
+        1345,
+        "14.42.160.222 I slot   operator(): id  0 | task 171 | new prompt, n_ctx_slot = 8192, n_keep = 0, task.n_tokens = 4139"
+      ],
+      [
+        1369,
+        "15.15.151.578 I slot   operator(): id  0 | task 175 | new prompt, n_ctx_slot = 8192, n_keep = 0, task.n_tokens = 4140"
+      ],
+      [
+        1393,
+        "15.36.944.796 I slot   operator(): id  0 | task 179 | new prompt, n_ctx_slot = 8192, n_keep = 0, task.n_tokens = 4141"
+      ],
+      [
+        1417,
+        "15.56.519.168 I slot   operator(): id  0 | task 183 | new prompt, n_ctx_slot = 8192, n_keep = 0, task.n_tokens = 4142"
+      ],
+      [
+        1441,
+        "16.15.995.741 I slot   operator(): id  0 | task 187 | new prompt, n_ctx_slot = 8192, n_keep = 0, task.n_tokens = 4143"
+      ],
+      [
+        1465,
+        "16.35.478.158 I slot   operator(): id  0 | task 191 | new prompt, n_ctx_slot = 8192, n_keep = 0, task.n_tokens = 4144"
+      ],
+      [
+        1489,
+        "16.54.978.134 I slot   operator(): id  0 | task 195 | new prompt, n_ctx_slot = 8192, n_keep = 0, task.n_tokens = 4145"
+      ],
+      [
+        1513,
+        "17.14.505.076 I slot   operator(): id  0 | task 199 | new prompt, n_ctx_slot = 8192, n_keep = 0, task.n_tokens = 4146"
+      ],
+      [
+        1537,
+        "17.34.006.152 I slot   operator(): id  0 | task 203 | new prompt, n_ctx_slot = 8192, n_keep = 0, task.n_tokens = 4147"
+      ],
+      [
+        1561,
+        "17.53.931.393 I slot   operator(): id  0 | task 207 | new prompt, n_ctx_slot = 8192, n_keep = 0, task.n_tokens = 4148"
+      ],
+      [
+        1585,
+        "18.14.179.011 I slot   operator(): id  0 | task 211 | new prompt, n_ctx_slot = 8192, n_keep = 0, task.n_tokens = 4149"
+      ],
+      [
+        1609,
+        "18.33.778.163 I slot   operator(): id  0 | task 215 | new prompt, n_ctx_slot = 8192, n_keep = 0, task.n_tokens = 4150"
+      ],
+      [
+        1633,
+        "18.54.344.236 I slot   operator(): id  0 | task 219 | new prompt, n_ctx_slot = 8192, n_keep = 0, task.n_tokens = 4151"
+      ],
+      [
+        1657,
+        "19.14.908.975 I slot   operator(): id  0 | task 223 | new prompt, n_ctx_slot = 8192, n_keep = 0, task.n_tokens = 4152"
+      ],
+      [
+        1681,
+        "19.35.251.272 I slot   operator(): id  0 | task 227 | new prompt, n_ctx_slot = 8192, n_keep = 0, task.n_tokens = 4153"
+      ],
+      [
+        1705,
+        "19.55.440.129 I slot   operator(): id  0 | task 231 | new prompt, n_ctx_slot = 8192, n_keep = 0, task.n_tokens = 4154"
+      ],
+      [
+        1729,
+        "20.16.117.549 I slot   operator(): id  0 | task 235 | new prompt, n_ctx_slot = 8192, n_keep = 0, task.n_tokens = 4155"
+      ],
+      [
+        1753,
+        "20.36.831.864 I slot   operator(): id  0 | task 239 | new prompt, n_ctx_slot = 8192, n_keep = 0, task.n_tokens = 4156"
+      ],
+      [
+        1777,
+        "20.57.467.473 I slot   operator(): id  0 | task 243 | new prompt, n_ctx_slot = 8192, n_keep = 0, task.n_tokens = 4157"
+      ],
+      [
+        1801,
+        "21.18.346.969 I slot   operator(): id  0 | task 247 | new prompt, n_ctx_slot = 8192, n_keep = 0, task.n_tokens = 4158"
+      ],
+      [
+        1825,
+        "21.39.447.092 I slot   operator(): id  0 | task 251 | new prompt, n_ctx_slot = 8192, n_keep = 0, task.n_tokens = 4159"
+      ],
+      [
+        1849,
+        "21.59.802.787 I slot   operator(): id  0 | task 255 | new prompt, n_ctx_slot = 8192, n_keep = 0, task.n_tokens = 4096"
+      ]
+    ],
+    "B-r3": [
+      [
+        79,
+        "0.00.174.828 I print_info: n_layer               = 36"
+      ],
+      [
+        270,
+        "0.00.486.666 I llama_kv_cache:        CPU KV buffer size =  1152.00 MiB"
+      ],
+      [
+        283,
+        "0.00.623.486 I srv    load_model: initializing, n_slots = 1, n_ctx_slot = 8192, kv_unified = 'false'"
+      ],
+      [
+        285,
+        "0.00.623.507 I slot   load_model: id  0 | task -1 | new slot, n_ctx = 8192"
+      ],
+      [
+        315,
+        "0.01.224.729 I slot   operator(): id  0 | task 0 | new prompt, n_ctx_slot = 8192, n_keep = 0, task.n_tokens = 4096"
+      ],
+      [
+        337,
+        "0.24.700.710 I slot   operator(): id  0 | task 66 | new prompt, n_ctx_slot = 8192, n_keep = 0, task.n_tokens = 4096"
+      ],
+      [
+        359,
+        "0.44.522.514 I slot   operator(): id  0 | task 69 | new prompt, n_ctx_slot = 8192, n_keep = 0, task.n_tokens = 4097"
+      ],
+      [
+        383,
+        "1.03.221.290 I slot   operator(): id  0 | task 73 | new prompt, n_ctx_slot = 8192, n_keep = 0, task.n_tokens = 4098"
+      ],
+      [
+        407,
+        "1.22.806.813 I slot   operator(): id  0 | task 77 | new prompt, n_ctx_slot = 8192, n_keep = 0, task.n_tokens = 4099"
+      ],
+      [
+        431,
+        "1.42.246.924 I slot   operator(): id  0 | task 81 | new prompt, n_ctx_slot = 8192, n_keep = 0, task.n_tokens = 4100"
+      ],
+      [
+        455,
+        "2.01.747.944 I slot   operator(): id  0 | task 85 | new prompt, n_ctx_slot = 8192, n_keep = 0, task.n_tokens = 4101"
+      ],
+      [
+        479,
+        "2.21.651.430 I slot   operator(): id  0 | task 89 | new prompt, n_ctx_slot = 8192, n_keep = 0, task.n_tokens = 4102"
+      ],
+      [
+        503,
+        "2.40.561.987 I slot   operator(): id  0 | task 93 | new prompt, n_ctx_slot = 8192, n_keep = 0, task.n_tokens = 4103"
+      ],
+      [
+        527,
+        "2.59.590.467 I slot   operator(): id  0 | task 97 | new prompt, n_ctx_slot = 8192, n_keep = 0, task.n_tokens = 4104"
+      ],
+      [
+        551,
+        "3.18.488.470 I slot   operator(): id  0 | task 101 | new prompt, n_ctx_slot = 8192, n_keep = 0, task.n_tokens = 4105"
+      ],
+      [
+        575,
+        "3.37.257.016 I slot   operator(): id  0 | task 105 | new prompt, n_ctx_slot = 8192, n_keep = 0, task.n_tokens = 4106"
+      ],
+      [
+        599,
+        "3.56.029.898 I slot   operator(): id  0 | task 109 | new prompt, n_ctx_slot = 8192, n_keep = 0, task.n_tokens = 4107"
+      ],
+      [
+        623,
+        "4.14.996.949 I slot   operator(): id  0 | task 113 | new prompt, n_ctx_slot = 8192, n_keep = 0, task.n_tokens = 4108"
+      ],
+      [
+        647,
+        "4.33.906.376 I slot   operator(): id  0 | task 117 | new prompt, n_ctx_slot = 8192, n_keep = 0, task.n_tokens = 4109"
+      ],
+      [
+        671,
+        "4.52.932.293 I slot   operator(): id  0 | task 121 | new prompt, n_ctx_slot = 8192, n_keep = 0, task.n_tokens = 4110"
+      ],
+      [
+        695,
+        "5.12.000.470 I slot   operator(): id  0 | task 125 | new prompt, n_ctx_slot = 8192, n_keep = 0, task.n_tokens = 4111"
+      ],
+      [
+        719,
+        "5.31.097.412 I slot   operator(): id  0 | task 129 | new prompt, n_ctx_slot = 8192, n_keep = 0, task.n_tokens = 4112"
+      ],
+      [
+        743,
+        "5.50.048.682 I slot   operator(): id  0 | task 133 | new prompt, n_ctx_slot = 8192, n_keep = 0, task.n_tokens = 4113"
+      ],
+      [
+        767,
+        "6.08.967.995 I slot   operator(): id  0 | task 137 | new prompt, n_ctx_slot = 8192, n_keep = 0, task.n_tokens = 4114"
+      ],
+      [
+        791,
+        "6.28.094.999 I slot   operator(): id  0 | task 141 | new prompt, n_ctx_slot = 8192, n_keep = 0, task.n_tokens = 4115"
+      ],
+      [
+        815,
+        "6.47.323.298 I slot   operator(): id  0 | task 145 | new prompt, n_ctx_slot = 8192, n_keep = 0, task.n_tokens = 4116"
+      ],
+      [
+        839,
+        "7.06.521.172 I slot   operator(): id  0 | task 149 | new prompt, n_ctx_slot = 8192, n_keep = 0, task.n_tokens = 4117"
+      ],
+      [
+        863,
+        "7.25.706.034 I slot   operator(): id  0 | task 153 | new prompt, n_ctx_slot = 8192, n_keep = 0, task.n_tokens = 4118"
+      ],
+      [
+        887,
+        "7.44.831.779 I slot   operator(): id  0 | task 157 | new prompt, n_ctx_slot = 8192, n_keep = 0, task.n_tokens = 4119"
+      ],
+      [
+        911,
+        "8.03.982.521 I slot   operator(): id  0 | task 161 | new prompt, n_ctx_slot = 8192, n_keep = 0, task.n_tokens = 4120"
+      ],
+      [
+        935,
+        "8.22.961.073 I slot   operator(): id  0 | task 165 | new prompt, n_ctx_slot = 8192, n_keep = 0, task.n_tokens = 4121"
+      ],
+      [
+        959,
+        "8.42.059.792 I slot   operator(): id  0 | task 169 | new prompt, n_ctx_slot = 8192, n_keep = 0, task.n_tokens = 4122"
+      ],
+      [
+        983,
+        "9.01.225.727 I slot   operator(): id  0 | task 173 | new prompt, n_ctx_slot = 8192, n_keep = 0, task.n_tokens = 4123"
+      ],
+      [
+        1007,
+        "9.20.429.135 I slot   operator(): id  0 | task 177 | new prompt, n_ctx_slot = 8192, n_keep = 0, task.n_tokens = 4124"
+      ],
+      [
+        1031,
+        "9.39.530.228 I slot   operator(): id  0 | task 181 | new prompt, n_ctx_slot = 8192, n_keep = 0, task.n_tokens = 4125"
+      ],
+      [
+        1055,
+        "9.59.368.322 I slot   operator(): id  0 | task 185 | new prompt, n_ctx_slot = 8192, n_keep = 0, task.n_tokens = 4126"
+      ],
+      [
+        1079,
+        "10.18.639.504 I slot   operator(): id  0 | task 189 | new prompt, n_ctx_slot = 8192, n_keep = 0, task.n_tokens = 4127"
+      ],
+      [
+        1103,
+        "10.38.007.178 I slot   operator(): id  0 | task 193 | new prompt, n_ctx_slot = 8192, n_keep = 0, task.n_tokens = 4128"
+      ],
+      [
+        1127,
+        "10.58.096.092 I slot   operator(): id  0 | task 197 | new prompt, n_ctx_slot = 8192, n_keep = 0, task.n_tokens = 4129"
+      ],
+      [
+        1151,
+        "11.17.413.966 I slot   operator(): id  0 | task 201 | new prompt, n_ctx_slot = 8192, n_keep = 0, task.n_tokens = 4130"
+      ],
+      [
+        1175,
+        "11.36.710.607 I slot   operator(): id  0 | task 205 | new prompt, n_ctx_slot = 8192, n_keep = 0, task.n_tokens = 4131"
+      ],
+      [
+        1199,
+        "11.56.134.357 I slot   operator(): id  0 | task 209 | new prompt, n_ctx_slot = 8192, n_keep = 0, task.n_tokens = 4132"
+      ],
+      [
+        1223,
+        "12.15.522.877 I slot   operator(): id  0 | task 213 | new prompt, n_ctx_slot = 8192, n_keep = 0, task.n_tokens = 4133"
+      ],
+      [
+        1247,
+        "12.35.052.082 I slot   operator(): id  0 | task 217 | new prompt, n_ctx_slot = 8192, n_keep = 0, task.n_tokens = 4134"
+      ],
+      [
+        1271,
+        "12.54.384.719 I slot   operator(): id  0 | task 221 | new prompt, n_ctx_slot = 8192, n_keep = 0, task.n_tokens = 4135"
+      ],
+      [
+        1295,
+        "13.13.570.503 I slot   operator(): id  0 | task 225 | new prompt, n_ctx_slot = 8192, n_keep = 0, task.n_tokens = 4136"
+      ],
+      [
+        1319,
+        "13.32.804.318 I slot   operator(): id  0 | task 229 | new prompt, n_ctx_slot = 8192, n_keep = 0, task.n_tokens = 4137"
+      ],
+      [
+        1343,
+        "13.52.075.908 I slot   operator(): id  0 | task 233 | new prompt, n_ctx_slot = 8192, n_keep = 0, task.n_tokens = 4138"
+      ],
+      [
+        1367,
+        "14.11.303.627 I slot   operator(): id  0 | task 237 | new prompt, n_ctx_slot = 8192, n_keep = 0, task.n_tokens = 4139"
+      ],
+      [
+        1391,
+        "14.31.317.113 I slot   operator(): id  0 | task 241 | new prompt, n_ctx_slot = 8192, n_keep = 0, task.n_tokens = 4140"
+      ],
+      [
+        1415,
+        "14.51.039.464 I slot   operator(): id  0 | task 245 | new prompt, n_ctx_slot = 8192, n_keep = 0, task.n_tokens = 4141"
+      ],
+      [
+        1439,
+        "15.11.239.149 I slot   operator(): id  0 | task 249 | new prompt, n_ctx_slot = 8192, n_keep = 0, task.n_tokens = 4142"
+      ],
+      [
+        1463,
+        "15.31.353.089 I slot   operator(): id  0 | task 253 | new prompt, n_ctx_slot = 8192, n_keep = 0, task.n_tokens = 4143"
+      ],
+      [
+        1487,
+        "15.51.775.268 I slot   operator(): id  0 | task 257 | new prompt, n_ctx_slot = 8192, n_keep = 0, task.n_tokens = 4144"
+      ],
+      [
+        1511,
+        "16.12.243.992 I slot   operator(): id  0 | task 261 | new prompt, n_ctx_slot = 8192, n_keep = 0, task.n_tokens = 4145"
+      ],
+      [
+        1535,
+        "16.31.713.164 I slot   operator(): id  0 | task 265 | new prompt, n_ctx_slot = 8192, n_keep = 0, task.n_tokens = 4146"
+      ],
+      [
+        1559,
+        "16.51.473.071 I slot   operator(): id  0 | task 269 | new prompt, n_ctx_slot = 8192, n_keep = 0, task.n_tokens = 4147"
+      ],
+      [
+        1583,
+        "17.11.223.200 I slot   operator(): id  0 | task 273 | new prompt, n_ctx_slot = 8192, n_keep = 0, task.n_tokens = 4148"
+      ],
+      [
+        1607,
+        "17.31.019.049 I slot   operator(): id  0 | task 277 | new prompt, n_ctx_slot = 8192, n_keep = 0, task.n_tokens = 4149"
+      ],
+      [
+        1631,
+        "17.50.674.306 I slot   operator(): id  0 | task 281 | new prompt, n_ctx_slot = 8192, n_keep = 0, task.n_tokens = 4150"
+      ],
+      [
+        1655,
+        "18.10.340.689 I slot   operator(): id  0 | task 285 | new prompt, n_ctx_slot = 8192, n_keep = 0, task.n_tokens = 4151"
+      ],
+      [
+        1679,
+        "18.29.991.836 I slot   operator(): id  0 | task 289 | new prompt, n_ctx_slot = 8192, n_keep = 0, task.n_tokens = 4152"
+      ],
+      [
+        1703,
+        "18.49.673.901 I slot   operator(): id  0 | task 293 | new prompt, n_ctx_slot = 8192, n_keep = 0, task.n_tokens = 4153"
+      ],
+      [
+        1727,
+        "19.09.263.958 I slot   operator(): id  0 | task 297 | new prompt, n_ctx_slot = 8192, n_keep = 0, task.n_tokens = 4154"
+      ],
+      [
+        1751,
+        "19.29.073.742 I slot   operator(): id  0 | task 301 | new prompt, n_ctx_slot = 8192, n_keep = 0, task.n_tokens = 4155"
+      ],
+      [
+        1775,
+        "19.56.933.923 I slot   operator(): id  0 | task 305 | new prompt, n_ctx_slot = 8192, n_keep = 0, task.n_tokens = 4156"
+      ],
+      [
+        1799,
+        "20.30.402.522 I slot   operator(): id  0 | task 309 | new prompt, n_ctx_slot = 8192, n_keep = 0, task.n_tokens = 4157"
+      ],
+      [
+        1823,
+        "21.02.546.569 I slot   operator(): id  0 | task 313 | new prompt, n_ctx_slot = 8192, n_keep = 0, task.n_tokens = 4158"
+      ],
+      [
+        1847,
+        "21.36.501.783 I slot   operator(): id  0 | task 317 | new prompt, n_ctx_slot = 8192, n_keep = 0, task.n_tokens = 4159"
+      ]
+    ],
+    "C-f16-f16": [
+      [
+        79,
+        "0.00.190.431 I print_info: n_layer               = 36"
+      ],
+      [
+        270,
+        "0.00.725.765 I llama_kv_cache:        CPU KV buffer size =  4608.00 MiB"
+      ],
+      [
+        283,
+        "0.01.129.938 I srv    load_model: initializing, n_slots = 1, n_ctx_slot = 32768, kv_unified = 'false'"
+      ],
+      [
+        285,
+        "0.01.129.967 I slot   load_model: id  0 | task -1 | new slot, n_ctx = 32768"
+      ],
+      [
+        315,
+        "0.04.237.537 I slot   operator(): id  0 | task 0 | new prompt, n_ctx_slot = 32768, n_keep = 0, task.n_tokens = 24576"
+      ],
+      [
+        357,
+        "5.40.713.282 I slot   operator(): id  0 | task 44 | new prompt, n_ctx_slot = 32768, n_keep = 0, task.n_tokens = 24576"
+      ],
+      [
+        377,
+        "5.50.084.629 I slot   operator(): id  0 | task 77 | new prompt, n_ctx_slot = 32768, n_keep = 0, task.n_tokens = 24576"
+      ],
+      [
+        397,
+        "5.59.191.540 I slot   operator(): id  0 | task 110 | new prompt, n_ctx_slot = 32768, n_keep = 0, task.n_tokens = 24576"
+      ],
+      [
+        417,
+        "6.08.448.783 I slot   operator(): id  0 | task 143 | new prompt, n_ctx_slot = 32768, n_keep = 0, task.n_tokens = 24576"
+      ],
+      [
+        437,
+        "6.17.686.713 I slot   operator(): id  0 | task 176 | new prompt, n_ctx_slot = 32768, n_keep = 0, task.n_tokens = 24576"
+      ],
+      [
+        457,
+        "6.26.768.703 I slot   operator(): id  0 | task 209 | new prompt, n_ctx_slot = 32768, n_keep = 0, task.n_tokens = 24576"
+      ],
+      [
+        477,
+        "6.36.116.157 I slot   operator(): id  0 | task 242 | new prompt, n_ctx_slot = 32768, n_keep = 0, task.n_tokens = 24576"
+      ],
+      [
+        497,
+        "6.45.358.884 I slot   operator(): id  0 | task 275 | new prompt, n_ctx_slot = 32768, n_keep = 0, task.n_tokens = 24576"
+      ],
+      [
+        517,
+        "6.54.484.713 I slot   operator(): id  0 | task 308 | new prompt, n_ctx_slot = 32768, n_keep = 0, task.n_tokens = 24576"
+      ],
+      [
+        537,
+        "7.03.784.925 I slot   operator(): id  0 | task 341 | new prompt, n_ctx_slot = 32768, n_keep = 0, task.n_tokens = 24576"
+      ],
+      [
+        557,
+        "7.12.876.608 I slot   operator(): id  0 | task 374 | new prompt, n_ctx_slot = 32768, n_keep = 0, task.n_tokens = 24576"
+      ],
+      [
+        577,
+        "7.22.031.302 I slot   operator(): id  0 | task 407 | new prompt, n_ctx_slot = 32768, n_keep = 0, task.n_tokens = 24576"
+      ],
+      [
+        597,
+        "7.31.157.406 I slot   operator(): id  0 | task 440 | new prompt, n_ctx_slot = 32768, n_keep = 0, task.n_tokens = 24576"
+      ],
+      [
+        617,
+        "7.40.239.316 I slot   operator(): id  0 | task 473 | new prompt, n_ctx_slot = 32768, n_keep = 0, task.n_tokens = 24576"
+      ],
+      [
+        637,
+        "7.49.591.758 I slot   operator(): id  0 | task 506 | new prompt, n_ctx_slot = 32768, n_keep = 0, task.n_tokens = 24576"
+      ],
+      [
+        657,
+        "7.58.641.227 I slot   operator(): id  0 | task 539 | new prompt, n_ctx_slot = 32768, n_keep = 0, task.n_tokens = 24576"
+      ],
+      [
+        677,
+        "8.07.846.349 I slot   operator(): id  0 | task 572 | new prompt, n_ctx_slot = 32768, n_keep = 0, task.n_tokens = 24576"
+      ],
+      [
+        697,
+        "8.17.026.917 I slot   operator(): id  0 | task 605 | new prompt, n_ctx_slot = 32768, n_keep = 0, task.n_tokens = 24576"
+      ],
+      [
+        717,
+        "8.26.250.572 I slot   operator(): id  0 | task 638 | new prompt, n_ctx_slot = 32768, n_keep = 0, task.n_tokens = 24576"
+      ]
+    ],
+    "C-q8_0-q8_0": [
+      [
+        79,
+        "0.00.170.831 I print_info: n_layer               = 36"
+      ],
+      [
+        270,
+        "0.00.548.637 I llama_kv_cache:        CPU KV buffer size =  2448.00 MiB"
+      ],
+      [
+        284,
+        "0.00.775.064 I srv    load_model: initializing, n_slots = 1, n_ctx_slot = 32768, kv_unified = 'false'"
+      ],
+      [
+        286,
+        "0.00.775.084 I slot   load_model: id  0 | task -1 | new slot, n_ctx = 32768"
+      ],
+      [
+        316,
+        "0.01.256.871 I slot   operator(): id  0 | task 0 | new prompt, n_ctx_slot = 32768, n_keep = 0, task.n_tokens = 24576"
+      ],
+      [
+        358,
+        "46.12.176.400 I slot   operator(): id  0 | task 44 | new prompt, n_ctx_slot = 32768, n_keep = 0, task.n_tokens = 24576"
+      ],
+      [
+        378,
+        "46.29.188.814 I slot   operator(): id  0 | task 77 | new prompt, n_ctx_slot = 32768, n_keep = 0, task.n_tokens = 24576"
+      ],
+      [
+        398,
+        "46.46.177.284 I slot   operator(): id  0 | task 110 | new prompt, n_ctx_slot = 32768, n_keep = 0, task.n_tokens = 24576"
+      ],
+      [
+        418,
+        "47.03.100.804 I slot   operator(): id  0 | task 143 | new prompt, n_ctx_slot = 32768, n_keep = 0, task.n_tokens = 24576"
+      ],
+      [
+        438,
+        "47.20.278.517 I slot   operator(): id  0 | task 176 | new prompt, n_ctx_slot = 32768, n_keep = 0, task.n_tokens = 24576"
+      ],
+      [
+        458,
+        "47.37.377.776 I slot   operator(): id  0 | task 209 | new prompt, n_ctx_slot = 32768, n_keep = 0, task.n_tokens = 24576"
+      ],
+      [
+        478,
+        "47.54.132.667 I slot   operator(): id  0 | task 242 | new prompt, n_ctx_slot = 32768, n_keep = 0, task.n_tokens = 24576"
+      ],
+      [
+        498,
+        "48.10.924.759 I slot   operator(): id  0 | task 275 | new prompt, n_ctx_slot = 32768, n_keep = 0, task.n_tokens = 24576"
+      ],
+      [
+        518,
+        "48.28.923.659 I slot   operator(): id  0 | task 308 | new prompt, n_ctx_slot = 32768, n_keep = 0, task.n_tokens = 24576"
+      ],
+      [
+        538,
+        "48.46.298.146 I slot   operator(): id  0 | task 341 | new prompt, n_ctx_slot = 32768, n_keep = 0, task.n_tokens = 24576"
+      ],
+      [
+        558,
+        "49.03.011.574 I slot   operator(): id  0 | task 374 | new prompt, n_ctx_slot = 32768, n_keep = 0, task.n_tokens = 24576"
+      ],
+      [
+        578,
+        "49.20.154.350 I slot   operator(): id  0 | task 407 | new prompt, n_ctx_slot = 32768, n_keep = 0, task.n_tokens = 24576"
+      ],
+      [
+        598,
+        "49.37.070.202 I slot   operator(): id  0 | task 440 | new prompt, n_ctx_slot = 32768, n_keep = 0, task.n_tokens = 24576"
+      ],
+      [
+        618,
+        "49.53.947.851 I slot   operator(): id  0 | task 473 | new prompt, n_ctx_slot = 32768, n_keep = 0, task.n_tokens = 24576"
+      ],
+      [
+        638,
+        "50.10.716.671 I slot   operator(): id  0 | task 506 | new prompt, n_ctx_slot = 32768, n_keep = 0, task.n_tokens = 24576"
+      ],
+      [
+        658,
+        "50.27.289.150 I slot   operator(): id  0 | task 539 | new prompt, n_ctx_slot = 32768, n_keep = 0, task.n_tokens = 24576"
+      ],
+      [
+        678,
+        "50.44.362.455 I slot   operator(): id  0 | task 572 | new prompt, n_ctx_slot = 32768, n_keep = 0, task.n_tokens = 24576"
+      ],
+      [
+        698,
+        "51.00.950.670 I slot   operator(): id  0 | task 605 | new prompt, n_ctx_slot = 32768, n_keep = 0, task.n_tokens = 24576"
+      ],
+      [
+        718,
+        "51.17.861.273 I slot   operator(): id  0 | task 638 | new prompt, n_ctx_slot = 32768, n_keep = 0, task.n_tokens = 24576"
+      ]
+    ],
+    "C-q4_0-q4_0": [
+      [
+        79,
+        "0.00.175.909 I print_info: n_layer               = 36"
+      ],
+      [
+        270,
+        "0.00.493.977 I llama_kv_cache:        CPU KV buffer size =  1296.00 MiB"
+      ],
+      [
+        284,
+        "0.00.644.698 I srv    load_model: initializing, n_slots = 1, n_ctx_slot = 32768, kv_unified = 'false'"
+      ],
+      [
+        286,
+        "0.00.644.719 I slot   load_model: id  0 | task -1 | new slot, n_ctx = 32768"
+      ],
+      [
+        316,
+        "0.01.245.880 I slot   operator(): id  0 | task 0 | new prompt, n_ctx_slot = 32768, n_keep = 0, task.n_tokens = 24576"
+      ],
+      [
+        358,
+        "33.27.422.993 I slot   operator(): id  0 | task 44 | new prompt, n_ctx_slot = 32768, n_keep = 0, task.n_tokens = 24576"
+      ],
+      [
+        378,
+        "33.37.152.259 I slot   operator(): id  0 | task 77 | new prompt, n_ctx_slot = 32768, n_keep = 0, task.n_tokens = 24576"
+      ],
+      [
+        398,
+        "33.46.902.846 I slot   operator(): id  0 | task 110 | new prompt, n_ctx_slot = 32768, n_keep = 0, task.n_tokens = 24576"
+      ],
+      [
+        418,
+        "33.56.444.954 I slot   operator(): id  0 | task 143 | new prompt, n_ctx_slot = 32768, n_keep = 0, task.n_tokens = 24576"
+      ],
+      [
+        438,
+        "34.06.064.810 I slot   operator(): id  0 | task 176 | new prompt, n_ctx_slot = 32768, n_keep = 0, task.n_tokens = 24576"
+      ],
+      [
+        458,
+        "34.15.445.985 I slot   operator(): id  0 | task 209 | new prompt, n_ctx_slot = 32768, n_keep = 0, task.n_tokens = 24576"
+      ],
+      [
+        478,
+        "34.25.050.822 I slot   operator(): id  0 | task 242 | new prompt, n_ctx_slot = 32768, n_keep = 0, task.n_tokens = 24576"
+      ],
+      [
+        498,
+        "34.34.787.604 I slot   operator(): id  0 | task 275 | new prompt, n_ctx_slot = 32768, n_keep = 0, task.n_tokens = 24576"
+      ],
+      [
+        518,
+        "34.44.552.053 I slot   operator(): id  0 | task 308 | new prompt, n_ctx_slot = 32768, n_keep = 0, task.n_tokens = 24576"
+      ],
+      [
+        538,
+        "34.54.230.828 I slot   operator(): id  0 | task 341 | new prompt, n_ctx_slot = 32768, n_keep = 0, task.n_tokens = 24576"
+      ],
+      [
+        558,
+        "35.04.011.760 I slot   operator(): id  0 | task 374 | new prompt, n_ctx_slot = 32768, n_keep = 0, task.n_tokens = 24576"
+      ],
+      [
+        578,
+        "35.13.903.003 I slot   operator(): id  0 | task 407 | new prompt, n_ctx_slot = 32768, n_keep = 0, task.n_tokens = 24576"
+      ],
+      [
+        598,
+        "35.23.394.216 I slot   operator(): id  0 | task 440 | new prompt, n_ctx_slot = 32768, n_keep = 0, task.n_tokens = 24576"
+      ],
+      [
+        618,
+        "35.33.059.043 I slot   operator(): id  0 | task 473 | new prompt, n_ctx_slot = 32768, n_keep = 0, task.n_tokens = 24576"
+      ],
+      [
+        638,
+        "35.42.395.317 I slot   operator(): id  0 | task 506 | new prompt, n_ctx_slot = 32768, n_keep = 0, task.n_tokens = 24576"
+      ],
+      [
+        658,
+        "35.51.921.079 I slot   operator(): id  0 | task 539 | new prompt, n_ctx_slot = 32768, n_keep = 0, task.n_tokens = 24576"
+      ],
+      [
+        678,
+        "36.01.464.713 I slot   operator(): id  0 | task 572 | new prompt, n_ctx_slot = 32768, n_keep = 0, task.n_tokens = 24576"
+      ],
+      [
+        698,
+        "36.10.826.167 I slot   operator(): id  0 | task 605 | new prompt, n_ctx_slot = 32768, n_keep = 0, task.n_tokens = 24576"
+      ],
+      [
+        718,
+        "36.20.781.204 I slot   operator(): id  0 | task 638 | new prompt, n_ctx_slot = 32768, n_keep = 0, task.n_tokens = 24576"
+      ]
+    ],
+    "C-q8_0-q4_0": [
+      [
+        79,
+        "0.00.180.283 I print_info: n_layer               = 36"
+      ],
+      [
+        270,
+        "0.00.536.811 I llama_kv_cache:        CPU KV buffer size =  1872.00 MiB"
+      ],
+      [
+        284,
+        "0.00.740.368 I srv    load_model: initializing, n_slots = 1, n_ctx_slot = 32768, kv_unified = 'false'"
+      ],
+      [
+        286,
+        "0.00.740.390 I slot   load_model: id  0 | task -1 | new slot, n_ctx = 32768"
+      ],
+      [
+        316,
+        "0.01.259.098 I slot   operator(): id  0 | task 0 | new prompt, n_ctx_slot = 32768, n_keep = 0, task.n_tokens = 24576"
+      ],
+      [
+        358,
+        "37.25.991.362 I slot   operator(): id  0 | task 44 | new prompt, n_ctx_slot = 32768, n_keep = 0, task.n_tokens = 24576"
+      ],
+      [
+        378,
+        "37.40.078.893 I slot   operator(): id  0 | task 77 | new prompt, n_ctx_slot = 32768, n_keep = 0, task.n_tokens = 24576"
+      ],
+      [
+        398,
+        "37.54.428.280 I slot   operator(): id  0 | task 110 | new prompt, n_ctx_slot = 32768, n_keep = 0, task.n_tokens = 24576"
+      ],
+      [
+        418,
+        "38.08.612.145 I slot   operator(): id  0 | task 143 | new prompt, n_ctx_slot = 32768, n_keep = 0, task.n_tokens = 24576"
+      ],
+      [
+        438,
+        "38.22.540.109 I slot   operator(): id  0 | task 176 | new prompt, n_ctx_slot = 32768, n_keep = 0, task.n_tokens = 24576"
+      ],
+      [
+        458,
+        "38.37.922.566 I slot   operator(): id  0 | task 209 | new prompt, n_ctx_slot = 32768, n_keep = 0, task.n_tokens = 24576"
+      ],
+      [
+        478,
+        "38.54.517.847 I slot   operator(): id  0 | task 242 | new prompt, n_ctx_slot = 32768, n_keep = 0, task.n_tokens = 24576"
+      ],
+      [
+        498,
+        "39.10.946.696 I slot   operator(): id  0 | task 275 | new prompt, n_ctx_slot = 32768, n_keep = 0, task.n_tokens = 24576"
+      ],
+      [
+        518,
+        "39.27.484.310 I slot   operator(): id  0 | task 308 | new prompt, n_ctx_slot = 32768, n_keep = 0, task.n_tokens = 24576"
+      ],
+      [
+        538,
+        "39.43.661.966 I slot   operator(): id  0 | task 341 | new prompt, n_ctx_slot = 32768, n_keep = 0, task.n_tokens = 24576"
+      ],
+      [
+        558,
+        "39.58.020.898 I slot   operator(): id  0 | task 374 | new prompt, n_ctx_slot = 32768, n_keep = 0, task.n_tokens = 24576"
+      ],
+      [
+        578,
+        "40.12.560.960 I slot   operator(): id  0 | task 407 | new prompt, n_ctx_slot = 32768, n_keep = 0, task.n_tokens = 24576"
+      ],
+      [
+        598,
+        "40.26.571.364 I slot   operator(): id  0 | task 440 | new prompt, n_ctx_slot = 32768, n_keep = 0, task.n_tokens = 24576"
+      ],
+      [
+        618,
+        "40.40.445.785 I slot   operator(): id  0 | task 473 | new prompt, n_ctx_slot = 32768, n_keep = 0, task.n_tokens = 24576"
+      ],
+      [
+        638,
+        "40.54.254.913 I slot   operator(): id  0 | task 506 | new prompt, n_ctx_slot = 32768, n_keep = 0, task.n_tokens = 24576"
+      ],
+      [
+        658,
+        "41.08.108.379 I slot   operator(): id  0 | task 539 | new prompt, n_ctx_slot = 32768, n_keep = 0, task.n_tokens = 24576"
+      ],
+      [
+        678,
+        "41.21.989.435 I slot   operator(): id  0 | task 572 | new prompt, n_ctx_slot = 32768, n_keep = 0, task.n_tokens = 24576"
+      ],
+      [
+        698,
+        "41.35.855.671 I slot   operator(): id  0 | task 605 | new prompt, n_ctx_slot = 32768, n_keep = 0, task.n_tokens = 24576"
+      ],
+      [
+        718,
+        "41.49.573.843 I slot   operator(): id  0 | task 638 | new prompt, n_ctx_slot = 32768, n_keep = 0, task.n_tokens = 24576"
+      ]
+    ],
+    "A-main-boundary-16896": [
+      [
+        79,
+        "0.00.190.083 I print_info: n_layer               = 36"
+      ],
+      [
+        270,
+        "0.00.550.903 I llama_kv_cache:        CPU KV buffer size =  2376.00 MiB"
+      ],
+      [
+        283,
+        "0.00.765.808 I srv    load_model: initializing, n_slots = 1, n_ctx_slot = 16896, kv_unified = 'false'"
+      ],
+      [
+        285,
+        "0.00.765.828 I slot   load_model: id  0 | task -1 | new slot, n_ctx = 16896"
+      ]
+    ],
+    "A-main-boundary-17152": [
+      [
+        79,
+        "0.00.182.745 I print_info: n_layer               = 36"
+      ],
+      [
+        270,
+        "0.00.579.030 I llama_kv_cache:        CPU KV buffer size =  2412.00 MiB"
+      ],
+      [
+        283,
+        "0.00.804.182 I srv    load_model: initializing, n_slots = 1, n_ctx_slot = 17152, kv_unified = 'false'"
+      ],
+      [
+        285,
+        "0.00.804.205 I slot   load_model: id  0 | task -1 | new slot, n_ctx = 17152"
+      ]
+    ],
+    "A-main-boundary-40960": [
+      [
+        79,
+        "0.00.179.968 I print_info: n_layer               = 36"
+      ],
+      [
+        269,
+        "0.00.874.095 I llama_kv_cache:        CPU KV buffer size =  5760.00 MiB"
+      ],
+      [
+        282,
+        "0.01.329.145 I srv    load_model: initializing, n_slots = 1, n_ctx_slot = 40960, kv_unified = 'false'"
+      ],
+      [
+        284,
+        "0.01.329.166 I slot   load_model: id  0 | task -1 | new slot, n_ctx = 40960"
+      ]
+    ],
+    "A-contrast-boundary-84736": [
+      [
+        87,
+        "0.00.329.489 I print_info: n_layer               = 32"
+      ],
+      [
+        286,
+        "0.00.734.643 I llama_kv_cache:        CPU KV buffer size =  2648.00 MiB"
+      ],
+      [
+        290,
+        "0.00.737.103 I llama_memory_recurrent:        CPU RS buffer size =    50.25 MiB"
+      ],
+      [
+        303,
+        "0.00.993.716 I srv    load_model: initializing, n_slots = 1, n_ctx_slot = 84736, kv_unified = 'false'"
+      ],
+      [
+        305,
+        "0.00.993.732 I slot   load_model: id  0 | task -1 | new slot, n_ctx = 84736"
+      ]
+    ],
+    "A-contrast-boundary-84992": [
+      [
+        87,
+        "0.00.340.865 I print_info: n_layer               = 32"
+      ],
+      [
+        286,
+        "0.00.754.342 I llama_kv_cache:        CPU KV buffer size =  2656.00 MiB"
+      ],
+      [
+        290,
+        "0.00.756.810 I llama_memory_recurrent:        CPU RS buffer size =    50.25 MiB"
+      ],
+      [
+        303,
+        "0.01.007.036 I srv    load_model: initializing, n_slots = 1, n_ctx_slot = 84992, kv_unified = 'false'"
+      ],
+      [
+        305,
+        "0.01.007.062 I slot   load_model: id  0 | task -1 | new slot, n_ctx = 84992"
+      ]
+    ]
+  },
+  "provenance_sha256": {
+    "models.json": "b2059a3af1bb696a76103065a7b003b9629017278311b490fb6ef24bd5c1b109",
+    "publisher.json": "e3d192637031519df1930e0eef1416693f0978ad162f0183beb185b40bffbfde"
+  },
+  "input_sha256": {
+    "client.py": "3b5228faab940c6a0ae99d6f7df4a1883fedcaf1c3a8825c45a81c8509bbd598",
+    "fixtures/authored-text.json": "0a4afb7df60f7fc452d4d982635c61a40f3ac260e0e9a7a844e3b23282fdb4f2",
+    "fixtures/b-prompt.json": "a6528337f9bd33f3a77855b66a8e8126135873a21559bac3dd587dda6f2acc4b",
+    "fixtures/scoring-policy.json": "0228def96ca336f149a21657bf0c46bc97856af049d300956f6669d247cee814",
+    "fixtures/tasks.json": "127b607527e5a0f98f19cc364c49d3363a308732e533f66afdc7e11640d2d990",
+    "logs/A-contrast-131072.log": "1dd0630807ab7a63adb3209f5973b9c1562cb8510a1646ebb2a5bf7ef5131bbe",
+    "logs/A-contrast-16384.log": "0c30e1ed82588057afc3f69a63189c02e516191ab7b4c5ac9c0becdfc16697a0",
+    "logs/A-contrast-32768.log": "c7236f55793fab0f0bafe6bd3e33f1c56bf9703d08ef01784a08cb77452bda1e",
+    "logs/A-contrast-4096.log": "71350079d667b84a0e03cd9c4edb4a1217adef9d3a9fbbc9d432659d5e543962",
+    "logs/A-contrast-65536.log": "dff7a54814dab41ddd5d7a168543d6a2ece2179e23e724f97314f134b2a6efbb",
+    "logs/A-contrast-boundary-84736.log": "5658ca40d619d59ced3473639dd2c1de3634e586db29b1385b0ca9b58e6f68c0",
+    "logs/A-contrast-boundary-84992.log": "0befd912d881e4a511343445fe39ec48ffcfa3fea9076a12a107c57c0f1ceebc",
+    "logs/A-main-16384.log": "7adf423e4ffa15fc2aaf22cde41469dc5d0bb3659376aae02a29e7e0f9cbad3c",
+    "logs/A-main-32768.log": "7a9a06458bb1d797a5b5f3bebdf71efe8e7d1c9c0b1a90a146836ad94ad14adc",
+    "logs/A-main-4096.log": "99ebda704d79c042a4486031b1ac676b9b2242f0b6fbcde58dd0aa953f56d234",
+    "logs/A-main-boundary-16896.log": "b007031a9a9e2d9ccc5bd22ce52bbcbade08c18290ba962fb2967c637ac8f36d",
+    "logs/A-main-boundary-17152.log": "bb4d9a0a54fad4ec19085057cb3aab40ec326ba85d7736f0e2cc5c7ce05d5e0a",
+    "logs/A-main-boundary-40960.log": "f17f7aa217521993d663c20fc4c25f277efea3eb7b5661b99f65428db4cdb5a5",
+    "logs/B-no-reuse-timing.log": "03f1394727d98fc0edee4aeab5073061bacdee1d177c28a713d96faa688ed3e0",
+    "logs/B-r1.log": "d790f877efa0c68f85a630861fc51f3aa1cb736835940e5aa4e04134e42e59b7",
+    "logs/B-r2.log": "98d7f99f7dceb5fcb69afb380c5fec4ef3c3095e7cbd60e11779cc61f7bef65f",
+    "logs/B-r3.log": "674371f0d5ae2710f5aeab5f4cb54e9a3f8b0e00668cc3cba2a0a4ea7ee56afa",
+    "logs/B-reuse-timing.log": "2f52a3b38316a973f1ed62a35e0ae3487b65486497817d084d2a200a5e53478f",
+    "logs/C-answer-comparison.log": "a2e7cc1c411bdd60384577730952d9ae692a5aaffe69823fba8ada53934a89f4",
+    "logs/C-f16-f16.log": "33440f0b6d53dbf75230fe844c3a316c16e2e7117289177f73b81fbde0d3664e",
+    "logs/C-q4_0-q4_0.log": "a42a783846be5c4197ccee775c992fd269c85a9795e5c66f8ebe5322a2d94f7b",
+    "logs/C-q8_0-q4_0.log": "753ce990747102ab5edccd3d88b7aa61309211b4a839d06dd3bacfc6a8bfaaad",
+    "logs/C-q8_0-q8_0.log": "aba670765f8b076bbd12409ec63a1636d736e38cdfa91a12dde12d1e1675427f",
+    "logs/D-parallel4.log": "cc9b7f365e8e1b7e9aa113e962adbccb754df024892ec2371fe74f42c15874b2",
+    "results/B-r1-no-reuse.jsonl": "7ad8c6ee64506075813a2ddb1f9bdc5b189c56c997d23f25c0df4f6f3d959a0f",
+    "results/B-r1-reuse.jsonl": "6c37b5bd001a13e7ef3cc154455d837bc9a4ecce4497631174cae639005fd508",
+    "results/B-r2-no-reuse.jsonl": "645bca5fcfc42ea9b424a0d443e8d852ed977deadd26bd71ac5958a99a61a1c8",
+    "results/B-r2-reuse.jsonl": "823c4d7b952ed30fa7ed0c717eb5dbd08601beee3fe76b4a92b9c9b41212a9db",
+    "results/B-r3-no-reuse.jsonl": "ae3d82c24a9fafb627af48d539b3b280ba9ab9e463523c2c2999b314764f2042",
+    "results/B-r3-reuse.jsonl": "1901071744babcb8c5919bb624b49b8c3255f1aa971ab73211f6d85409e63148",
+    "results/C-f16-f16.jsonl": "55caa4ae924748e56f2713070e1388d822f0d6cd714953076915c1ad66fb1156",
+    "results/C-q4_0-q4_0.jsonl": "e909e7c7a8e3b68c8bbb4f3a92886ce1b8f36c6683498ab2da59453e3d3ab1d6",
+    "results/C-q8_0-q4_0.jsonl": "1ee801463e2442ca0b6f33619476c9fa0f8331a73cd96392e2d987fd11980293",
+    "results/C-q8_0-q8_0.jsonl": "dbdb7d102d97b23470c350ef5408162a3b79813a3a6f1c0fffe0129492977c41",
+    "results/blocks.jsonl": "673ace7ef3514e9153f4d53a1ebff345cb913d52a6feed2dbb4fb7c006af9b52",
+    "results/formulas.jsonl": "c991e142a39d922b76e018ba2e8073a875909bc43238db755dd0e9c51215ca8b",
+    "run-all.py": "0e437d51fb8aac8ca28e2679c009edfed7368b8b92ec53d66d86b9ffedb0df56",
+    "run.py": "77877a20dfa67e0b433f9729e909bb1df506559d21d7b01ff5eda59c405bddae",
+    "setup.py": "a9955dd1995651270a8d75b322fbac01cadb58e730187cae64b901c36e452384",
+    "summarize.py": "84cb4d202f5565236dfc9c8c68bf36c09fac3ecfd2883d475acd6df8fdc421a3",
+    "supplement.py": "79a23f83e47b98aaa1cd00a1b9f732c07ddffb3c3434856cfc8adb675514af3c"
+  }
+}
